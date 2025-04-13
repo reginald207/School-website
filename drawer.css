@@ -1,0 +1,234 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px; /* Added spacing at the ends */
+    background-color: #006400;
+    color: #fff;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.site-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Menu Toggle Animation to X */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #006400;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 10px 0;
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+
+/* Parallax Section */
+.parallax-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    background: url('your-image.jpg') no-repeat center center fixed; /* Parallax effect */
+    background-size: cover; /* Cover entire section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Overlay Content */
+  .overlay-content {
+    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    max-width: 90%;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .overlay-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .overlay-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .overlay-content h1 {
+      font-size: 2rem; /* Smaller font for small screens */
+    }
+  
+    .overlay-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  .hero {
+    background-image: url('bg.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.welcome-box h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-box p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.start-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.start-btn:hover {
+    background-color: #e64a19;
+}
+
+
+
+

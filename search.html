@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Page</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    span{
+        color: #fff;
+    }
+
+
+    #close{
+        color: #fff
+    }
+
+    /* Search Page */
+    #searchPage {
+      width: 100%;
+      height: 100vh;
+      background-image: url('bgr.jpg');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    #searchPage header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #006400;
+    }
+
+    #searchPage header #logoSlot {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #searchPage header #logoSlot img {
+      height: 40px;
+    }
+
+    #searchPage header button {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Search Input */
+    #searchInput {
+      width: calc(100% - 40px);
+      margin: 20px auto;
+      display: block;
+      padding: 15px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    /* Suggestions */
+    #suggestions {
+      list-style: none;
+      margin: 10px auto;
+      padding: 0;
+      width: calc(100% - 40px);
+    }
+
+    #suggestions li {
+      padding: 10px;
+      background: white;
+      border: 1px solid #ddd;
+      margin-bottom: -1px;
+      cursor: pointer;
+    }
+
+    #suggestions li:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Search Page -->
+  <div id="searchPage">
+    <header>
+      <div id="logoSlot">
+        <a href="osco.html"><img src="logo.png" alt="Logo"></a>
+        <span>Search</span>
+      </div>
+      <button class="close" id="closeButton">X</button>
+    </header>
+    <div>
+      <input type="text" id="searchInput" placeholder="Search for news...">
+      <ul id="suggestions"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Sample data for posts with search words and locations
+    const posts = [
+      { title: "Breaking News: Local Event Happening Now", location: "/news/local-event" },
+      { title: "Sports Update: Team Wins Championship", location: "/news/sports-championship" },
+      { title: "Weather Forecast: Sunny Days Ahead", location: "/news/weather-forecast" },
+      { title: "Tech News: New Gadgets Released", location: "/news/tech-gadgets" },
+      { title: "Global News: Market Trends Shift", location: "/blog alternative.html" }
+    ];
+
+    // DOM Elements
+    const closeButton = document.getElementById('closeButton');
+    const searchInput = document.getElementById('searchInput');
+    const suggestions = document.getElementById('suggestions');
+
+    // Close Search Page
+    closeButton.addEventListener('click', () => {
+      window.history.back(); // Go back to the previous page
+    });
+
+    // Autocomplete Suggestions
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      suggestions.innerHTML = '';
+
+      if (query) {
+        const matches = posts.filter(post => post.title.toLowerCase().includes(query));
+        matches.forEach(match => {
+          const li = document.createElement('li');
+          li.textContent = match.title;
+
+          // Make suggestion clickable, navigating to the location
+          li.addEventListener('click', () => {
+            window.location.href = match.location; // Navigate to the post's location
+          });
+
+          suggestions.appendChild(li);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img src="g10.jpg" alt="Sponsor 1">
+<img src="g12.jpg" alt="Sponsor 2">
+<img src="g2.jpg" alt="Sponsor 3">
+<img src="g1.jpg" alt="Sponsor 4">
+<img src="g3.jpg" alt="Sponsor 5">

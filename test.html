@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            display: none;
+        }
+
+        .gallery-item:hover .description {
+            display: block;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        /* Remove outline and border for buttons */
+        button, .arrow-btn, .close-btn {
+            outline: none;
+            border: none;
+        }
+
+        /* Style the buttons */
+        .arrow-btn, .close-btn {
+            background: none;
+            cursor: pointer;
+            color: white;
+            font-size: 30px;
+        }
+
+        /* Add a smooth transition for buttons */
+        .arrow-btn:hover, .close-btn:hover {
+            opacity: 0.8;
+        }
+
+        .lightbox .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .lightbox .arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .lightbox .arrow-left {
+            left: 20px;
+        }
+
+        .lightbox .arrow-right {
+            right: 20px;
+        }
+
+        /* For mobile view */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .lightbox img {
+                max-width: 100%;
+                max-height: 70%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="gallery">
+    <!-- Gallery items (Images) -->
+    <div class="gallery-item" data-index="0">
+        <img src="bgr.jpg" alt="Image 1">
+        <div class="description">Image 1 Description</div>
+    </div>
+    <div class="gallery-item" data-index="1">
+        <img src="bgr.jpg" alt="Image 2">
+        <div class="description">Image 2 Description</div>
+    </div>
+    <div class="gallery-item" data-index="2">
+        <img src="g1.jpg" alt="Image 3">
+        <div class="description">Image 3 Description</div>
+    </div>
+    <div class="gallery-item" data-index="3">
+        <img src="g12.jpg" alt="Image 4">
+        <div class="description">Image 4 Description</div>
+    </div>
+    <!-- Add more images as needed -->
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox">
+    <span class="close-btn">×</span>
+    <img src="" alt="Large Image">
+    <span class="arrow-btn arrow-left"><i class="fas fa-chevron-left"></i></span>
+    <span class="arrow-btn arrow-right"><i class="fas fa-chevron-right"></i></span>
+</div>
+
+<script>
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImage = lightbox.querySelector('img');
+    const closeBtn = lightbox.querySelector('.close-btn');
+    const arrowLeft = lightbox.querySelector('.arrow-left');
+    const arrowRight = lightbox.querySelector('.arrow-right');
+    let currentIndex = 0;
+
+    // Open the lightbox with the clicked image
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentIndex = index;
+            const imgSrc = item.querySelector('img').src;
+            lightboxImage.src = imgSrc;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    // Close the lightbox
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    // Navigate to the previous image
+    arrowLeft.addEventListener('click', () => {
+        currentIndex = (currentIndex === 0) ? galleryItems.length - 1 : currentIndex - 1;
+        lightboxImage.src = galleryItems[currentIndex].querySelector('img').src;
+    });
+
+    // Navigate to the next image
+    arrowRight.addEventListener('click', () => {
+        currentIndex = (currentIndex === galleryItems.length - 1) ? 0 : currentIndex + 1;
+        lightboxImage.src = galleryItems[currentIndex].querySelector('img').src;
+    });
+</script>
+
+</body>
+</html>

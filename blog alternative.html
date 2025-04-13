@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Oda Senior High Official Website.">
+    <meta name="keywords" content="odasco, oda, ODASCO, Odasco, OSCO, OSHS, Senior high, senior high, Oda senior high, Oda">
+    <meta name="author" content="ODASCO">
+
+
+     <!-- Open Graph for social media -->
+     <meta property="og:title" content="Responsive Image Gallery">
+     <meta property="og:description" content="A beautifully designed responsive image gallery with intuitive navigation.">
+     <meta property="og:image" content="https://yourwebsite.com/gallery-preview.jpg">
+     <meta property="og:url" content="https://yourwebsite.com">
+     
+     <!-- Favicon -->
+     <link rel="icon" type="image/png" href="logo.png">
+     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+     
+    <title>Home - Oda Senior High School</title>
+  <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px; /* Added spacing at the ends */
+    background-color: #006400;
+    color: #fff;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.site-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Menu Toggle Animation to X */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #006400;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index:900;
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 10px 0;
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+
+/* Parallax Section */
+.parallax-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    background: url('your-image.jpg') no-repeat center center fixed; /* Parallax effect */
+    background-size: cover; /* Cover entire section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Overlay Content */
+  .overlay-content {
+    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    max-width: 90%;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .overlay-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .overlay-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .overlay-content h1 {
+      font-size: 2rem; /* Smaller font for small screens */
+    }
+  
+    .overlay-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  .hero {
+    background-image: url('bg.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.welcome-box h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-box p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.start-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.start-btn:hover {
+    background-color: #e64a19;
+}
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  .header1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+    z-index:800;
+    
+
+  }
+  .search-bar input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .search-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: calc(100% + 5px); /* Below the search box */
+    background: white;
+    border: 1px solid #ccc;
+    width: 300px;
+    z-index: 1000;
+  }
+  .search-bar ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  .search-bar ul li:hover {
+    background: #f0f0f0;
+  }
+  .news-item {
+    margin-bottom: 40px;
+  }
+  .news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+  }
+  .news-item h2 {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  .news-item p {
+    font-size: 16px;
+    color: #555;
+  }
+  .main-article {
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+  .main-article .image-grid {
+    display: flex;
+    gap: 10px;
+  }
+  .main-article .image-grid img {
+    flex: 1;
+    height: auto;
+    border-radius: 25px 
+  }
+  .main-article h1 {
+    font-size: 32px;
+    margin: 20px 0;
+  }
+  .main-article p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .related-posts {
+    margin-top: 40px;
+  }
+  .related-posts h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .related-posts .related-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .related-posts .related-item {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 200px;
+  }
+  .related-posts .related-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .related-posts .related-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .related-posts .related-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .related-posts .related-item a {
+    text-decoration: none;
+    color: #006400;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .related-posts .related-item a:hover {
+    text-decoration: underline;
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .main-article .image-grid {
+      flex-wrap: wrap;
+    }
+    .main-article .image-grid img {
+      flex: none;
+      width: 100%;
+    }
+    .related-posts .related-items {
+      flex-direction: column;
+    }
+    .related-posts .related-item {
+      width: 97%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header1 h1 {
+      font-size: 20px;
+    }
+    .main-article h1 {
+      font-size: 24px;
+    }
+    .main-article p {
+      font-size: 16px;
+    }
+    .search-bar input {
+      width: 100%;
+    }
+    .search-bar ul {
+      width: 100%;
+    }
+  }
+
+  .interaction-container {
+            max-width: 400px;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            #like-btn {
+            padding: 12px 20px;
+            font-size: 18px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+          }
+
+          button {
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        #like-btn {
+            background-color: blue;
+            color: white;
+        }
+        #like-btn:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+        #unlike-btn {
+            background-color: red;
+            color: white;
+        }
+        /* Shake animation */
+        .shake {
+            animation: shake 0.4s ease-in-out;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        
+        }
+        .comment-section {
+            margin-top: 15px;
+        }
+        .comment-box {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .comment-btn {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .comment-btn:hover {
+            background-color: #1e7e34;
+        }
+        .comments-list {
+            margin-top: 10px;
+            padding: 0;
+        }
+        .comments-list li {
+            list-style: none;
+            background: #f1f1f1;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+
+
+
+
+
+      /* Footer General Styles */
+.footer {
+    background-color: #006400; /* Dark blue background */
+    color: #ffffff; /* White text */
+    font-family: Arial, sans-serif;
+    padding: 20px 0;
+  }
+  
+  .footer h3 {
+    margin-bottom: 10px;
+    color: #ffffff; /* Light blue heading */
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 5%;
+    gap: 20px;
+  }
+  
+  /* About Section */
+  .footer-section.about {
+    flex: 1 1 300px; /* Flexible size for smaller screens */
+    text-align: center;
+  }
+  
+  .footer-logo {
+    width: 80px;
+    margin: 10px 0;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Quick Links */
+  .footer-section.quick-links {
+    flex: 1 1 200px;
+  }
+  
+  .footer-section.quick-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section.quick-links ul li {
+    margin: 5px 0;
+  }
+  
+  .footer-section.quick-links ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section.quick-links ul li a:hover {
+    color: #ffcc00; /* Hover color */
+  }
+  
+  /* Map Section */
+  .footer-section.map {
+    flex: 1 1 300px;
+    text-align: center;
+  }
+  
+  .map-placeholder {
+    width: 100%;
+    height: 200px;
+    border: none;
+    overflow: hidden;
+  }
+  
+  .map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px; /* Rounded corners for map */
+  }
+  
+  /* Social Media Icons */
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between icons */
+    margin: 20px 0;
+  }
+  
+  .footer-socials a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-socials a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .footer-socials a:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
+    border-top: 1px solid #013220
+  }
+  
+  .footer-bottom span {
+    color: #00bfff; /* Highlighted name */
+  }
+  
+  /* Responsive Footer Design */
+  @media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .footer-section {
+        margin-bottom: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-socials a {
+        width: 30px;
+        height: 30px;
+    }
+  
+    .footer p {
+        font-size: 12px;
+    }
+  }
+  
+
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo-container">
+        <a href="osco.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
+        <span class="site-name">Oda Senior High School</span>
+    </div>
+
+      <!-- Menu Toggle Button -->
+      <button id="menu-toggle" class="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav class="nav">
+          <ul class="nav-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+      </nav>
+  </header>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="mobile-menu">
+      <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
+      </ul>
+  </div>
+
+
+
+  <div class="container">
+      <div class="header1">
+        <h1>Odasco News</h1>
+      </div>
+      
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search news...">
+        <ul id="suggestions"></ul>
+      </div>
+  
+      <!-- News Articles -->
+      <div class="news-item">
+        <img src="debate1.jpeg" alt="News Image">
+        <h2>ODA SENIOR HIGH SCHOOL CROWNED REGIONAL DEBATE CHAMPIONS FOR THE SECOND TIME</h2>
+        <p>Oda Senior High School (Odasco) has once again demonstrated its intellectual excellence by securing the top spot in the regional debate competition. This remarkable achievement reinforces the school’s reputation as a leading academic institution in the region.</p>
+      </div>
+  
+      <!-- Main Article Section -->
+      <div class="main-article">
+        <div class="image-grid">
+          <img src="debate2.jpeg" alt="Main Article Image 1">
+          <img src="debate3.jpeg" alt="Main Article Image 2">
+        </div>
+       
+        <p>The competition featured some of the brightest minds from various schools, each team delivering compelling arguments and showcasing outstanding public speaking skills. Despite the fierce contest, Odasco emerged victorious with an impressive 32 points, claiming the coveted championship title for the second time.</p>
+        <p>
+        <h2>Final Standings:</h2>
+        <ul>
+          <li>Ghanass: 26 points</li>
+          <li>Presec Mampong: 28 points</li>
+          <li>Kade SHS: 29 points</li>
+          <li>Akim Asafo: 30 points</li>
+          <li>Odasco: 32 points</li>
+        </p></ul>
+        <p>This victory is a moment of pride for the entire Odasco community, highlighting the dedication, hard work, and perseverance of the students, teachers, and staff. Their commitment to academic excellence continues to yield remarkable results.</p>
+        <p>As regional champions, Odasco will now advance to the national debate competition, where they will compete against the best schools from across the country.</p>
+        <p>We extend our heartfelt congratulations to the team and wish them success as they represent the region at the national level!</p>
+      </div>
+  
+
+      <div class="interaction-container">
+        
+        <div class="comment-section">
+            <h3>Comments</h3>
+            <input type="text" id="comment-input" class="comment-box" placeholder="Write a comment...">
+            <button class="comment-btn" onclick="addComment()">Post Comment</button>
+            <ul id="comments-list" class="comments-list"></ul>
+        </div>
+    </div>
+
+
+      <!-- Related Posts Section -->
+      <div class="related-posts">
+        <h2>You May Also Like</h2>
+        <div class="related-items">
+          <div class="related-item">
+            <img src="https://via.placeholder.com/400x200" alt="Related Post 1">
+            <h3>Related post 1</h3>
+            <p><a href="/alumni-spotlight.html">Continue Reading</a></p>
+          </div>
+          <div class="related-item">
+            <img src="https://via.placeholder.com/400x200" alt="Related Post 2">
+            <h3>Related post 2</h3>
+            <p><a href="/alumni-spotlight.html">Continue Reading</a></p>
+          </div>
+          <div class="related-item">
+            <img src="https://via.placeholder.com/400x200" alt="Related Post 3">
+            <h3>Related post 3</h3>
+            <p><a href="/entrance-exam.html">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+       <!-- Footer Section -->
+ <footer class="footer">
+  <!-- Top Footer Content -->
+  <div class="footer-container">
+      <!-- About Section -->
+      <div class="footer-section about">
+          <h3>About Us</h3>
+          <a href="osco.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
+            <p>Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.
+
+          </p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-section quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <pre> </pre>
+              <li><a href="osco.html">Home</a></li>
+              <li><a href="about-osco.html">About Us</a></li>
+              <li><a href="Academics-osco.html">Academics</a></li>
+              <li><a href="news and events-osco.html">News and Events</a></li>
+              <li><a href="contact-osco.html">Contact Us</a></li>
+          </ul>
+      </div>
+
+      <!-- Map Section -->
+      <div class="footer-section map">
+          <h3>Find Us</h3>
+          <!-- Map Placeholder -->
+          <div class="map-placeholder">
+              <iframe 
+              src="https://maps.google.com/maps?q=Oda%20Senior%20High%20School&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              frameborder="0" 
+              allowfullscreen>
+              </iframe>
+          </div>
+      </div>
+  </div>
+
+  <!-- Social Media Icons -->
+  <div class="footer-socials">
+      <a href="https://www.facebook.com" target="_blank">
+          <img src="communication.png" width= "25%" alt="Facebook">
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+          <img src="twitter.png" width= "25%" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+          <img src="instagram.png" width= "25%" alt="Instagram">
+      </a>
+      <a href="https://www.linkedin.com" target="_blank">
+          <img src="youtube.png" width= "25%" alt="LinkedIn">
+      </a>
+      <a href="https://www.linkedin.com" target="_blank">
+        <img src="tik-tok.png" width= "25%" alt="LinkedIn">
+    </a>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+      <p>
+          Copyright 2024 - All rights reserved | Oda Senior High School | <br>
+          <span>Joel Reginald Osei</span>
+      </p>
+  </div>
+</footer>
+
+
+
+
+
+
+  <!-- JavaScript for Search Functionality -->
+  <script>
+    //Drawer//
+// Select Elements
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+const body = document.body;
+
+// Toggle Mobile Menu
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+});
+
+// Close Menu on Click Outside
+document.addEventListener("click", (e) => {
+    if (
+        !mobileMenu.contains(e.target) &&
+        !menuToggle.contains(e.target) &&
+        mobileMenu.classList.contains("active")
+    ) {
+        mobileMenu.classList.remove("active");
+        menuToggle.classList.remove("active");
+    }
+});
+
+// Auto-close Drawer on Screen Resize
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+        mobileMenu.classList.remove("active");
+        menuToggle.classList.remove("active");
+    }
+});
+
+
+
+
+
+
+
+const posts = [
+    { title: "Sonrise Wins the Maiden Edition of the National Quiz Competition", location: "/quiz-competition.html" },
+    { title: "Alumni Spotlight: Kwadwo Sheldon Visits Sonrise", location: "/alumni-spotlight.html" },
+    { title: "Upcoming Events: Entrance Examination", location: "/blog alternative.html" }
+  ];
+  
+  const searchInput = document.getElementById('searchInput');
+  const suggestions = document.getElementById('suggestions');
+  
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    suggestions.innerHTML = '';
+  
+    if (query) {
+      const matches = posts.filter(post => post.title.toLowerCase().includes(query));
+      if (matches.length > 0) {
+        matches.forEach(match => {
+          const li = document.createElement('li');
+          li.textContent = match.title;
+  
+          // Make suggestion clickable, navigating to the location
+          li.addEventListener('click', () => {
+            window.location.href = match.location;
+          });
+  
+          suggestions.appendChild(li);
+        });
+      } else {
+        // Show "No results found" message
+        const noResultsLi = document.createElement('li');
+        noResultsLi.textContent = "No results found";
+        noResultsLi.style.color = "red"; // Optional: Add styling for the message
+        suggestions.appendChild(noResultsLi);
+      }
+    }
+  });
+
+
+
+
+
+  
+  const likeBtn = document.getElementById("like-btn");
+        const unlikeBtn = document.getElementById("unlike-btn");
+        const likeCount = document.getElementById("like-count");
+
+        let likes = localStorage.getItem("likes") ? parseInt(localStorage.getItem("likes")) : 0;
+        let liked = localStorage.getItem("liked") === "true";
+
+        // Update UI
+        likeCount.textContent = likes;
+        if (liked) {
+            likeBtn.disabled = true;
+            likeBtn.style.backgroundColor = "green"; 
+            unlikeBtn.disabled = false;
+        }
+
+        likeBtn.addEventListener("click", function() {
+            if (!liked) {
+                likes++;
+                localStorage.setItem("likes", likes);
+                localStorage.setItem("liked", "true");
+                likeCount.textContent = likes;
+                likeBtn.disabled = true;
+                likeBtn.style.backgroundColor = "green";
+                unlikeBtn.disabled = false;
+                likeBtn.classList.add("shake"); 
+                setTimeout(() => likeBtn.classList.remove("shake"), 400);
+            }
+        });
+
+        unlikeBtn.addEventListener("click", function() {
+            if (liked) {
+                likes--;
+                localStorage.setItem("likes", likes);
+                localStorage.setItem("liked", "false");
+                likeCount.textContent = likes;
+                likeBtn.disabled = false;
+                likeBtn.style.backgroundColor = "blue";
+                unlikeBtn.disabled = true;
+            }
+        });
+
+
+        function addComment() {
+            let commentInput = document.getElementById("comment-input");
+            let commentText = commentInput.value.trim();
+
+            if (commentText !== "") {
+                let commentList = document.getElementById("comments-list");
+                let newComment = document.createElement("li");
+                newComment.textContent = commentText;
+                commentList.appendChild(newComment);
+                commentInput.value = "";  // Clear input field
+            }
+        }
+  
+
+
+  </script>
+</body>
+</html>

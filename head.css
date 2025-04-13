@@ -1,0 +1,229 @@
+
+
+/* search functionality */
+/* General Styling */
+.main-header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.search-section {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+#mainSearchInput {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#searchButton {
+  width: 24px; /* Adjust to the desired size */
+  height: 24px;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  opacity: 0.7; /* Add hover effect */
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .search-container {
+      width: 90%;
+  }
+
+  .search-button img {
+      width: 20px;
+      height: 20px;
+  }
+}
+
+
+
+
+
+
+/* Drawer */
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px; /* Added spacing at the ends */
+  background-color: #006400;
+  color: #fff;
+  position: relative; /* Keeps the header fixed at the top */
+  top: 0; /* Aligns it to the top of the page */
+  left: 0; /* Aligns it to the left */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow */
+  flex: 0 0 auto;
+  
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.site-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Menu Toggle Animation to X */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #006400;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.mobile-menu ul li {
+  margin: 10px 0;
+  overflow-y: scroll;
+}
+
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+  color: #ffcc00;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav {
+      display: none;
+  }
+
+  .menu-toggle {
+      display: flex;
+  }
+}
+
+
+
+
+/* Responsive School Name */
+.site-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .site-name {
+      font-size: 16px;
+      font-weight: bold;
+      content: "ODASCO";
+      display: inline-block;
+  }
+}
+
+/* Search Button in Drawer */
+.drawer-search {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#drawerSearchButton {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    #searchButton {
+        display: none; /* Hide search button in the header */
+    }
+}
+

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Articles</title>
+    <link rel="stylesheet" href="adminstyles.css">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="adminscript.js" defer></script>
+</head>
+
+<header class="header">
+    <div class="logo-container">
+        <a href="osco.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
+        <span class="site-name">Oda Senior High School</span>
+    </div>
+
+
+    
+
+      
+    
+    <!-- Menu Toggle Button -->
+    <button id="menu-toggle" class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+
+    <!-- Navigation Links -->
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="osco.html">Home</a></li>
+            <li><a href="about-osco.html">About</a></li>
+            <li><a href="Academics-osco.html">Academics</a></li>
+            <li><a href="news and events-osco.html">News and Events</a></li>
+            <li><a href="contact-osco.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu" class="mobile-menu">
+    <ul>
+        <li><a href="osco.html">Home</a></li>
+        <li><a href="about-osco.html">About</a></li>
+        <li><a href="Academics-osco.html">Academics</a></li>
+        <li><a href="news and events-osco.html">News</a></li>
+        <li><a href="contact-osco.html">Contact</a></li>
+    </ul>
+    <hr style="width: 45%; height: 1px;  margin-left: auto; margin-right: auto;">
+    <div class="footer-socials">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="communication.png" width= "18%" alt="Facebook">
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+            <img src="twitter.png" width= "18%" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="instagram.png" width= "18%" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+            <img src="youtube.png" width= "18%" alt="LinkedIn">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+          <img src="tik-tok.png" width= "18%" alt="LinkedIn">
+      </a>
+    </div>
+    
+</div>
+
+
+ <!-- Scroll Indicator -->
+ <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+
+<body>
+    <div class="dashboard-container">
+        <main class="main-content">
+            <header>
+                <h1>Article Management</h1>
+                <div class="user-info" id="user-display"></div>
+                <button class="logout-btn" onclick="logoutUser()">Logout</button>
+            </header>
+
+            <sectiond id="articles" class="content-section active">
+                <h2>Articles</h2>
+                <div class="actions">
+                    <button class="create-article-btn" onclick="openArticleEditor()">Create New Article</button>
+                    <div class="filter-options">
+                        <label for="status-filter">Filter by Status:</label>
+                        <select id="status-filter" onchange="filterArticles(this.value)">
+                            <option value="all">All</option>
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                            <option value="scheduled">Scheduled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="article-list" id="article-list">
+                    </div>
+
+                <div id="article-editor-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button" onclick="closeArticleEditor()">&times;</span>
+                        <h2>Create/Edit Article</h2>
+                        <form id="article-form" onsubmit="submitArticle(event)">
+                            <div class="form-group">
+                                <label for="title">Title:</label>
+                                <input type="text" id="title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="headline">Headline:</label>
+                                <input type="text" id="headline" name="headline">
+                            </div>
+                            <div class="form-group">
+                                <label for="body">Body:</label>
+                                <textarea id="body" name="body" class="rich-text-editor"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Image URLs:</label>
+                                <div id="image-url-container">
+                                    <label for="imageUrl">Image URL:</label>
+                                    <input type="text" id="imageUrl" name="imageUrls[]" placeholder="Paste image URL">
+                                </div>
+                                <button type="button" id="add-image-url">Add Image URL</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label>YouTube/Video URLs:</label>
+                                <div id="video-url-container">
+                                    <label for="videoUrl">YouTube/Video URL:</label>
+                                    <input type="text" id="videoUrl" name="videoUrls[]" placeholder="Paste YouTube/Vimeo URL">
+                                </div>
+                                <button type="button" id="add-video-url">Add Video URL</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="category">Category:</label>
+                                <select id="category" name="category">
+                                    <option value="">Select Category</option>
+                                    <option value="add-new">+ Add New Category</option>
+                                </select>
+                                <div id="new-category-input" style="display: none;">
+                                    <input type="text" id="new-category" name="newCategory" placeholder="Enter new category">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="publish-toggle">Publish:</label>
+                                <input type="checkbox" id="publish-toggle" name="publish-toggle">
+                            </div>
+                            <div class="form-group">
+                                <label for="schedule-date">Schedule Publish Date/Time:</label>
+                                <input type="datetime-local" id="schedule-date" name="schedule-date">
+                            </div>
+                            <input type="hidden" id="article-id" name="article-id">
+                            <button type="submit" class="save-article-btn">Save Article</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <!-- Top Footer Content -->
+        <div class="footer-container">
+            <!-- About Section -->
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <a href="osco.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
+                  <p></p>Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.
+      
+      
+      
+      
+      
+      
+      
+                </p>
+            </div>
+      
+            <!-- Quick Links Section -->
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                  <pre> </pre>
+                    <li><a href="osco.html">Home</a></li>
+                    <li><a href="about-osco.html">About Us</a></li>
+                    <li><a href="Academics-osco.html">Academics</a></li>
+                    <li><a href="news and events-osco.html">News and Events</a></li>
+                    <li><a href="contact-osco.html">Contact Us</a></li>
+                </ul>
+            </div>
+      
+            <!-- Map Section -->
+            <div class="footer-section map">
+                <h3>Find Us</h3>
+                <!-- Map Placeholder -->
+                <div class="map-placeholder">
+                    <iframe 
+                    src="https://maps.google.com/maps?q=Oda%20Senior%20High%20School&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    frameborder="0" 
+                    allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+      
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="communication.png" width= "25%" alt="Facebook">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="twitter.png" width= "25%" alt="Twitter">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="instagram.png" width= "25%" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+                <img src="youtube.png" width= "25%" alt="LinkedIn">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+              <img src="tik-tok.png" width= "25%" alt="LinkedIn">
+          </a>
+        </div>
+      
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>
+                Copyright 2024 - All rights reserved | Oda Senior High School | <br>
+                <span>Joel Reginald Osei</span>
+            </p>
+        </div>
+      </footer>
+
+</body>
+</html>

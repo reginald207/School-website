@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+</head>
+
+
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <div id="error-display" class="error-message"></div>
+        <div class="form-group">
+            <label for="username">Email:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button class="login-button" onclick="handleLogin()">Login</button>
+    </div>
+
+    
+    
+
+    <script src="login.js"></script>
+</body>
+</html>

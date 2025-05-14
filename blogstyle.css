@@ -1,0 +1,830 @@
+/* Base Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    position: relative;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .site-name {
+        font-size: 16px;
+        content: "ODASCO";
+        display: inline-block;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* search functionality */
+  /* General Styling */
+  .main-header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Drawer */
+  /* Header Styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px; /* Added spacing at the ends */
+    background-color: #006400;
+    color: #fff;
+    position: relative; /* Keeps the header fixed at the top */
+    top: 0; /* Aligns it to the top of the page */
+    left: 0; /* Aligns it to the left */
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow */
+    flex: 0 0 auto;
+    
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  .site-name {
+    font-size: 29px;
+    font-weight: bold;
+    align-items: center;
+  }
+  
+  /* Responsive Name Styling */
+  @media screen and (max-width:900px) {
+    .site-name {
+        display: none;
+    }
+  
+    .logo-container::after {
+        content: "ODASCO";
+        font-size: 29px;
+        font-weight: bold;
+        color: white;
+        align-items: center;
+    }
+  }
+  
+  @media screen and (min-width: 1366px) {
+    .site-name {
+        display: inline;
+    }
+  
+    .logo-container::after {
+        content: "";
+    }
+  }
+  @media screen and (min-width: 750px) {
+    .site-name {
+        display: inline;
+    }
+  
+    .logo-container::after {
+        content: "";
+    }
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Menu Toggle Button */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+   
+  }
+  
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  /* Menu Toggle Animation to X */
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(7.3px) rotate(45deg);
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7.3px) rotate(-45deg);
+  }
+  
+  /* Mobile Menu Styles */
+  .mobile-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #006400;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 3;
+  }
+  
+  .mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .mobile-menu ul li {
+    margin: 10px 0;
+    overflow-y: scroll;
+  }
+  
+  .mobile-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .mobile-menu ul li a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1000px) {
+    .nav {
+        display: none;
+    }
+  
+    .menu-toggle {
+        display: flex;
+    }
+  }
+  
+  
+  
+  
+  
+   /* Scroll Bar Container */
+   .progress-container {
+    width: 100%;
+    height: 5px;
+    background: #006400;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    height: 5px;
+    width: 0%;
+    background: #4caf50; /* Green */
+    transition: width 0.1s ease-out;
+  }
+
+
+
+
+/* Hero Section Styles */
+.hero-section {
+    background-image: url('bg.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    min-height: 400px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%; /* Ensure hero-content takes full width to center within */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.hero-content input#search-input {
+    width: 80%; /* Default width */
+    max-width: 500px; /* Default maximum width */
+    padding: 0.7em;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease;
+    margin: 10px auto; /* Center the search bar */
+}
+
+/* Admin Login Button */
+.admin-login-button {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #000080;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    font-size: 0.8em;
+}
+
+.admin-login-button:hover {
+    background-color: #000066;
+}
+
+.admin-login-button svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+/* Blog Post Styles (for excerpts) */
+#blog-container {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blog-post {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+
+
+.blog-post.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.blog-post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+
+.post-meta {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Full Post Styles */
+.full-post {
+    padding: 20px;
+}
+
+.full-post h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.full-post .post-meta {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.full-post-images {
+    margin-bottom: 20px;
+}
+
+.full-post-images img {
+    max-width: 70%; /* Or any specific width */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Ensure it's a block-level element */
+}
+
+/* Layout for two images */
+.full-post-images[data-image-count="2"] {
+    display: flex;
+    justify-content: center; /* Center the images */
+    gap: 10px;
+}
+
+.full-post-images[data-image-count="2"] img {
+    width: 30%; /* Reduce size for two side-by-side images */
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+
+/* Layout for three or more images */
+.full-post-images[data-image-count="3"] img:first-child,
+.full-post-images[data-image-count="4"] img:first-child,
+.full-post-images[data-image-count="5"] img:first-child,
+.full-post-images[data-image-count="6"] img:first-child {
+    width: 100%; /* First image takes full width */
+}
+
+.full-post-images[data-image-count="3"] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the two images below */
+    gap: 10px;
+}
+
+.full-post-images[data-image-count="3"] img:nth-child(2),
+.full-post-images[data-image-count="3"] img:nth-child(3) {
+    width: 45%; /* Reduce size for the two images below */
+    margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+/* Layout for four images */
+.full-post-images[data-image-count="4"] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the three images below */
+    gap: 10px;
+}
+
+.full-post-images[data-image-count="4"] img:nth-child(2),
+.full-post-images[data-image-count="4"] img:nth-child(3),
+.full-post-images[data-image-count="4"] img:nth-child(4) {
+    width: 30%; /* Reduce size for the three images below */
+    margin-bottom: 10px;
+}
+
+/* Layout for more than 4 images - you can define further patterns as needed */
+.full-post-images[data-image-count="5"] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.full-post-images[data-image-count="5"] img:nth-child(2),
+.full-post-images[data-image-count="5"] img:nth-child(3),
+.full-post-images[data-image-count="5"] img:nth-child(4),
+.full-post-images[data-image-count="5"] img:nth-child(5) {
+    width: 22%; /* Reduce size for the four images below */
+    margin-bottom: 10px;
+}
+
+/* Style for the headline */
+.post-headline {
+    font-size: 1.8em;
+    color: #444;
+    margin-bottom: 15px;
+    font-weight: bold; /* Optional: make it bold */
+}
+
+.full-post-text {
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+/* Video Layout */
+.full-post-videos {
+    margin-top: 30px; /* Spacing above the videos container */
+    display: flex;
+    flex-direction: column; /* Stack videos by default */
+    gap: 20px; /* Spacing between videos */
+    align-items: center; /* Center videos */
+}
+
+.full-post-videos[data-video-count="2"] {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.full-post-videos[data-video-count="2"] iframe {
+    width: calc(50% - 10px);
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 16 / 9;
+    max-width: 100%; /* Ensure responsiveness within their container */
+}
+
+.full-post-videos iframe {
+    width: 80%; /* Make single videos take up a reasonable width */
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Standard video aspect ratio */
+    max-width: 560px; /* Limit maximum width */
+    margin-bottom: 20px; /* Spacing below videos */
+}
+
+/* Share Buttons */
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center; /* Vertically align items in the container */
+}
+
+.share-buttons a,
+.share-buttons button {
+    display: inline-flex; /* Use inline-flex to control alignment of text/icons within */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    background-color: #007bff; /* Default blue color for social links */
+    color: white;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: none; /* Remove default button border */
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.share-buttons a:hover,
+.share-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the Copy Link button */
+.share-buttons button {
+    background-color: #007bff; /* Use the default blue or another primary color */
+}
+
+.share-buttons button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+/* Specific styles for each platform (optional) */
+.share-buttons a[href*="facebook.com"] {
+    background-color: #1877f2;
+}
+
+.share-buttons a[href*="facebook.com"]:hover {
+    background-color: #1360c6;
+}
+
+.share-buttons a[href*="twitter.com"] {
+    background-color: #1da1f2;
+}
+
+.share-buttons a[href*="twitter.com"]:hover {
+    background-color: #0c85d0;
+}
+
+.share-buttons a[href*="linkedin.com"] {
+    background-color: #0077b5;
+}
+
+.share-buttons a[href*="linkedin.com"]:hover {
+    background-color: #005682;
+}
+
+.share-buttons a[href*="whatsapp://send"] {
+    background-color: #25d366;
+}
+
+.share-buttons a[href*="whatsapp://send"]:hover {
+    background-color: #1da851;
+}
+
+/* Style for the "Back to All Posts" button */
+.full-post button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 0.8em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Add some space above the button */
+}
+
+.full-post button:hover {
+    background-color: #333;
+}
+
+/* Footer General Styles */
+.footer {
+    background-color: #006400; /* Dark blue background */
+    color: #ffffff; /* White text */
+    font-family: Arial, sans-serif;
+    padding: 20px 0;
+  }
+  
+  .footer h3 {
+    margin-bottom: 10px;
+    color: #ffffff; /* Light blue heading */
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 5%;
+    gap: 20px;
+  }
+  
+  /* About Section */
+  .footer-section.about {
+    flex: 1 1 300px; /* Flexible size for smaller screens */
+    text-align: center;
+  }
+  
+  .footer-logo {
+    width: 80px;
+    margin: 10px 0;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Quick Links */
+  .footer-section.quick-links {
+    flex: 1 1 200px;
+  }
+  
+  .footer-section.quick-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section.quick-links ul li {
+    margin: 5px 0;
+  }
+  
+  .footer-section.quick-links ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section.quick-links ul li a:hover {
+    color: #ffcc00; /* Hover color */
+  }
+  
+  /* Map Section */
+  .footer-section.map {
+    flex: 1 1 300px;
+    text-align: center;
+  }
+  
+  .map-placeholder {
+    width: 100%;
+    height: 200px;
+    border: none;
+    overflow: hidden;
+  }
+  
+  .map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px; /* Rounded corners for map */
+  }
+  
+  /* Social Media Icons */
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between icons */
+    margin: 20px 0;
+  }
+  
+  .footer-socials a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-socials a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .footer-socials a:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
+    border-top: 1px solid #013220
+  }
+  
+  .footer-bottom span {
+    color: #00bfff; /* Highlighted name */
+  }
+  
+  /* Responsive Footer Design */
+  @media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .footer-section {
+        margin-bottom: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-socials a {
+        width: 30px;
+        height: 30px;
+    }
+  
+    .footer p {
+        font-size: 12px;
+    }
+  }
+  
+
+/* Responsive Layout for Smaller Screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .full-post-images {
+        flex-direction: row; /* Stack images */
+    }
+
+    .full-post-images img {
+        width: 100%; /* Make images full width */
+        margin-bottom: 15px;
+    }
+
+    .full-post-videos {
+        flex-direction: column; /* Stack videos */
+    }
+
+    .full-post-videos[data-video-count="2"] {
+        flex-direction: column; /* Stack videos */
+    }
+
+    .full-post-videos[data-video-count="2"] iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .full-post-videos iframe {
+        width: 100%;
+    }
+
+    .post-headline {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+    }
+
+    .full-post button {
+        font-size: 0.9em;
+        padding: 0.6em 1.2em;
+    }
+
+    .share-buttons {
+        flex-direction: row; /* Keep buttons in a row on medium screens */
+        align-items: center;
+        justify-content: flex-start; /* Align buttons to the start */
+        flex-wrap: wrap; /* Allow buttons to wrap if they don't fit */
+    }
+
+    .share-buttons a,
+    .share-buttons button {
+        margin-bottom: 5px;
+        margin-right: 5px;
+        flex-grow: 0; /* Don't allow them to grow and take up full width */
+    }
+}
+
+@media (max-width: 480px) {
+    .full-post h2 {
+        font-size: 2em;
+    }
+
+    .post-headline {
+        font-size: 1.4em;
+    }
+
+    .full-post-text {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
+    .full-post button {
+        font-size: 0.8em;
+        padding: 0.5em 1em;
+    }
+
+    .share-buttons {
+        flex-direction: column; /* Stack buttons on smaller screens */
+        align-items: stretch;
+    }
+
+    .share-buttons a,
+    .share-buttons button {
+        margin-right: 0;
+    }
+}
+
+/* Styles for larger devices (over 768px) - Make it 2 times longer and centered */
+@media (min-width: 769px) {
+    .hero-content input#search-input {
+        width: calc(80% * 2); /* Double the default width */
+        max-width: 500px; /* Double the default max-width */
+        margin: 20px auto; /* Center the search bar */
+    }
+}

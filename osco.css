@@ -574,6 +574,244 @@ body {
 
 
 
+
+
+
+/* News & Events Section (Homepage) */
+.news-events {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f8f8f8; /* Light background for this section */
+}
+
+.news-events h2 {
+  font-size: 2.2rem;
+  color: #006400; /* Green title */
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.news-events h2::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.news-container {
+  display: flex; /* Use flexbox for the cards */
+  justify-content: center; /* Center the cards */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px; /* Max width for the card container */
+  margin: 0 auto 40px auto; /* Center container and add bottom margin */
+  min-height: 300px; /* Give it a minimum height to avoid jumping during loading */
+}
+
+/* News Card Styles (for Homepage - dynamically loaded) */
+.news-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 320px; /* Fixed width for consistency */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  opacity: 0; /* Initial state for fade-in animation */
+  transform: translateY(20px); /* Initial state for slide-up animation */
+}
+
+.news-card.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for image */
+  object-fit: cover; /* Ensures image covers the area */
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover img {
+  transform: scale(1.05); /* Slight zoom on image hover */
+}
+
+.news-card-content { /* New div for content within news-card */
+  padding: 15px;
+  text-align: left; /* Align text to the left within the card */
+  flex-grow: 1; /* Allows content to take remaining vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distributes content vertically */
+}
+
+.news-card-content h3 { /* News Item Title */
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.news-card-content .news-meta { /* Date and Category */
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.news-card-content .news-excerpt { /* Excerpt/Short Description */
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1; /* Allow excerpt to take available space */
+  display: -webkit-box; /* For text truncation */
+  -webkit-line-clamp: 3; /* Limit excerpt to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-card-content .read-more-link { /* Read More Link */
+  display: inline-block;
+  color: #006400; /* Green link */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start; /* Align to left */
+  margin-top: auto; /* Push to bottom if content is shorter */
+}
+
+.news-card-content .read-more-link:hover {
+  color: #004d00; /* Darker green on hover */
+  transform: translateX(5px);
+}
+
+/* Tag Styles (NEWS/EVENTS) - assuming these come from Firestore `category` field */
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px; /* Space below tag */
+}
+
+/* Specific tag colors */
+.tag.news { /* Apply this class if category is "News" */
+  background-color: #ffcc00; /* Yellow for News */
+  color: #333;
+}
+
+.tag.events { /* Apply this class if category is "Events" */
+  background-color: #006400; /* Blue for Events */
+  color: white;
+}
+
+/* View All News Button */
+.view-all-news-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.view-all-news-btn {
+  display: inline-block;
+  background-color: #006400;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.view-all-news-btn:hover {
+  background-color: #004d00;
+  transform: translateY(-3px);
+}
+
+/* Video Container Styles */
+.video-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow videos to wrap */
+  justify-content: center;
+  gap: 30px; /* Space between videos */
+  margin-top: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-container iframe {
+  width: 100%; /* Full width on small screens */
+  max-width: 560px; /* Max width for individual video */
+  height: auto;
+  aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjustments for multiple videos in a row on larger screens */
+@media (min-width: 768px) {
+  .video-container {
+      justify-content: space-around; /* Distribute videos more evenly */
+  }
+  .video-container iframe {
+      width: calc(50% - 15px); /* Two videos per row with gap */
+  }
+}
+@media (min-width: 1024px) {
+  .video-container iframe {
+      width: calc(33.33% - 20px); /* Three videos per row for very large screens */
+  }
+}
+
+/* Responsive Overrides for News Cards */
+@media (max-width: 768px) {
+  .news-card {
+      width: 90%; /* Make news cards wider on mobile */
+      height: auto; /* Allow height to adjust */
+      flex-direction: column; /* Stack image and content vertically on mobile */
+  }
+  .news-card img {
+      height: 180px; /* Keep a reasonable height for news card images */
+  }
+  .news-card-content {
+      flex-grow: unset; /* Don't force growth */
+  }
+  .news-card .news-meta, .news-card .news-excerpt {
+      margin-bottom: 10px; /* Adjust spacing */
+  }
+}
+
+@media (max-width: 480px) {
+  .news-card {
+      width: 100%; /* Full width on very small screens */
+  }
+}
+
+
+
+
+
+
+
+
+
 /*News and Events Page*/
 /* Grid for News Section */
 .container {
@@ -659,27 +897,193 @@ body {
 }
 
 
-/* About page */
-/* General Reset */
-* {
+
+
+
+/*CTA carousel*/
+/*CTA carousel Start*/
+body {
+  margin: 0;
+}
+.carousel {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  
 }
 
-
-.parallax-about{
-  position: relative;
-  height: 70vh;
-  background: url('sch3.jpg') no-repeat center center fixed;
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
 }
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  max-width: 80%;
+  z-index: 2;
+}
+
+.overlay.top-left { top: 10%; left: 5%; }
+.overlay.bottom-right { bottom: 10%; right: 5%; }
+.overlay.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay h1 {
+  font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white;
+  width: auto;
+  min-width: 2ch;
+  color: white;
+  animation: blink 0.7s step-end infinite;
+}
+
+
+.overlay p {
+  opacity: 0;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+@keyframes fadeinText {
+  to { opacity: 1; }
+}
+
+.navbr {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.navbr button {
+  padding: 10px 20px;
+  background: white;
+  color: black;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Countdown Timer */
+.countdown {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  color: #fff;
+  z-index: 10;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .overlay h1 { font-size: 1.5rem; }
+  .overlay p { font-size: 1rem; }
+}
+/*CTA carousel End*/
+
+
+
+
+
+
+
+
+
+
+/* about section*/
+.about-section {
+  padding: 3rem 2rem;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Base layout: image left, text right */
+.about-image {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsive: text on top, image below */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}
+
+/*About section end*/
 
 
 
@@ -714,7 +1118,7 @@ body {
 }
 
 .history-image img {
-  width: 150%;
+  width: 200%;
   max-width: 750px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -1292,7 +1696,7 @@ iframe {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #1b1f5f;
+  background-color: #006400;
   color: white;
   padding: 5px 10px;
   font-size: 12px;

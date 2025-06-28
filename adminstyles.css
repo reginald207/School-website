@@ -1,477 +1,488 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0; /* Remove default body margin */
-    background-color: none;
-    color: #374151;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column; /* Stack header and main content */
-    align-items: stretch; /* Stretch items to fill viewport width */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; /* Remove default body margin */
+  background-color: none;
+  color: #374151;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Stack header and main content */
+  align-items: stretch; /* Stretch items to fill viewport width */
 }
 
-
 @media screen and (max-width: 768px) {
-    .site-name {
-        font-size: 16px;
-        content: "ODASCO";
-        display: inline-block;
-    }
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  /* General Styling */
-  .main-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
-
-  /* Drawer */
-  /* Header Styles */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px; /* Added spacing at the ends */
-    background-color: #006400;
-    color: #fff;
-    position: relative; /* Keeps the header fixed at the top */
-    top: 0; /* Aligns it to the top of the page */
-    left: 0; /* Aligns it to the left */
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow */
-    flex: 0 0 auto;
-    
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
-  
   .site-name {
-    font-size: 29px;
-    font-weight: bold;
-    align-items: center;
+      font-size: 16px;
+      content: "ODASCO";
+      display: inline-block;
   }
-  
-  /* Responsive Name Styling */
-  @media screen and (max-width:900px) {
-    .site-name {
-        display: none;
-    }
-  
-    .logo-container::after {
-        content: "ODASCO";
-        font-size: 29px;
-        font-weight: bold;
-        color: white;
-        align-items: center;
-    }
+}
+
+/* General Styling */
+.main-header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Drawer */
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px; /* Added spacing at the ends */
+  background-color: #006400;
+  color: #fff;
+  position: relative; /* Keeps the header fixed at the top */
+  top: 0; /* Aligns it to the top of the page */
+  left: 0; /* Aligns it to the left */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow */
+  flex: 0 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.site-name {
+  font-size: 29px;
+  font-weight: bold;
+  align-items: center;
+}
+
+/* Responsive Name Styling */
+@media screen and (max-width:900px) {
+  .site-name {
+      display: none;
   }
-  
-  @media screen and (min-width: 1366px) {
-    .site-name {
-        display: inline;
-    }
-  
-    .logo-container::after {
-        content: "";
-    }
+
+  .logo-container::after {
+      content: "ODASCO";
+      font-size: 29px;
+      font-weight: bold;
+      color: white;
+      align-items: center;
   }
-  @media screen and (min-width: 750px) {
-    .site-name {
-        display: inline;
-    }
-  
-    .logo-container::after {
-        content: "";
-    }
+}
+
+@media screen and (min-width: 1366px) {
+  .site-name {
+      display: inline;
   }
-  
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
+
+  .logo-container::after {
+      content: "";
   }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease;
+}
+
+@media screen and (min-width: 750px) {
+  .site-name {
+      display: inline;
   }
-  
-  .nav-links a:hover {
-    color: #ffcc00;
+
+  .logo-container::after {
+      content: "";
   }
-  
-  /* Menu Toggle Button */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Menu Toggle Animation to X */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(7.3px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-7.3px) rotate(-45deg);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  background-color: #006400;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 3;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.mobile-menu ul li {
+  margin: 10px 0;
+  overflow-y: scroll;
+}
+
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+  color: #ffcc00;
+}
+
+/* Responsive Styles */
+@media (max-width: 1000px) {
+  .nav {
+      display: none;
+  }
+
   .menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-   
+      display: flex;
   }
-  
-  .bar {
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-  
-  /* Menu Toggle Animation to X */
-  .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(7.3px) rotate(45deg);
-  }
-  
-  .menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-7.3px) rotate(-45deg);
-  }
-  
-  /* Mobile Menu Styles */
-  .mobile-menu {
-    position: absolute;
-    top: 56px;
-    left: 0;
-    width: 100%;
-    background-color: #006400;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    z-index: 3;
-  }
-  
-  .mobile-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  .mobile-menu ul {
-    list-style: none;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .mobile-menu ul li {
-    margin: 10px 0;
-    overflow-y: scroll;
-  }
-  
-  .mobile-menu ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .mobile-menu ul li a:hover {
-    color: #ffcc00;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 1000px) {
-    .nav {
-        display: none;
-    }
-  
-    .menu-toggle {
-        display: flex;
-    }
-  }
-  
-  
-  
-  
-  
-   /* Scroll Bar Container */
-   .progress-container {
-    width: 100%;
-    height: 5px;
-    background: #006400;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-  }
-  
-  /* Progress Bar */
-  .progress-bar {
-    height: 5px;
-    width: 0%;
-    background: #4caf50; /* Green */
-    transition: width 0.1s ease-out;
-  }
+}
 
+/* Scroll Bar Container */
+.progress-container {
+  width: 100%;
+  height: 5px;
+  background: #006400;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
 
+/* Progress Bar */
+.progress-bar {
+  height: 5px;
+  width: 0%;
+  background: #4caf50; /* Green */
+  transition: width 0.1s ease-out;
+}
 
 .dashboard-container {
-    background-color: #fff;
-    border-radius: 0; /* Remove border radius */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    overflow: hidden;
-    width: 100%; /* Span across the width */
-    display: flex;
-    flex-grow: 1; /* Allow it to grow and take available height */
-    flex-direction: column; /* Stack header and main content within container */
-    height: 90vh;
+  background-color: #fff;
+  border-radius: 0; /* Remove border radius */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden;
+  width: 100%; /* Span across the width */
+  display: flex;
+  flex-grow: 1; /* Allow it to grow and take available height */
+  flex-direction: column; /* Stack warning, header and main content within container */
+  height: 90vh; /* This might need adjustment if it clips content */
+  /* Ensure there's enough space for header and footer */
+  padding-bottom: 60px; /* Adjust based on your footer's height */
 }
 
 .main-content {
-    padding: 20px; /* Adjust padding */
-    flex-grow: 1; /* Allow main content to grow */
+  padding: 20px; /* Adjust padding */
+  flex-grow: 1; /* Allow main content to grow */
+  display: flex; /* Make main-content a flex container */
+  flex-direction: column; /* Stack its children */
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px; /* Adjust header padding */
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ffff;
+/* Dashboard Header (inside main-content) */
+.dashboard-header { /* Targeting the new class */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* Adjust header padding */
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Light border for separation */
+  flex-wrap: wrap; /* Allow items to wrap */
+  gap: 10px; /* Spacing between wrapped items */
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.8em; /* Adjust font size */
-    color: #1e293b;
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 1.8em; /* Adjust font size */
+  color: #006400;
+  flex-shrink: 0; /* Prevent from shrinking */
+}
+
+.header-user-actions { /* New container for user info and logout */
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between user info and logout button */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: flex-end; /* Align to the right */
+  flex-grow: 1; /* Allow it to take available space */
 }
 
 .user-info {
-    color: #4b5563;
-    font-weight: 500;
-    font-size: 0.9em; /* Adjust font size */
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 0.9em; /* Adjust font size */
+  text-align: right; /* Align text within its container */
 }
 
 .logout-btn {
-    background-color: #dc2626;
-    color: white;
-    border: none;
-    padding: 8px 12px; /* Adjust button padding */
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9em; /* Adjust font size */
-    transition: background-color 0.2s ease-in-out;
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 8px 12px; /* Adjust button padding */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em; /* Adjust font size */
+  transition: background-color 0.2s ease-in-out;
+  flex-shrink: 0; /* Prevent from shrinking */
 }
 
 .logout-btn:hover {
-    background-color: #b91c1c;
+  background-color: #fedd00;
+  box-shadow: 0 5px 15px rgba(254,221,0); /* Glow on hover */
 }
 
 .content-section {
-    /* Articles section will be the main content */
+  /* Articles section will be the main content */
 }
 
 /* Actions Bar */
 .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px; /* Adjust margin */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-    gap: 10px; /* Spacing between action items */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Adjust margin */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 10px; /* Spacing between action items */
 }
 
 .actions button.create-article-btn {
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    padding: 10px 18px; /* Adjust button padding */
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s ease-in-out;
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 10px 18px; /* Adjust button padding */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .actions button.create-article-btn:hover {
-    background-color: #2563eb;
+  background-color: #fedd00;
+  box-shadow: 0 5px 15px rgba(254,221,0); /* Glow on hover */
 }
 
 .filter-options label {
-    margin-right: 8px;
-    font-weight: 500;
-    color: #4b5563;
-    font-size: 0.9em;
+  margin-right: 8px;
+  font-weight: 500;
+  color: #4b5563;
+  font-size: 0.9em;
 }
 
 .filter-options select {
-    padding: 8px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 0.9em;
-    color: #374151;
-    max-width: 200px; /* Limit width of select */
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9em;
+  color: #374151;
+  max-width: 200px; /* Limit width of select */
 }
 
 /* Article List */
 .article-list {
-    margin-top: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min width for responsiveness */
-    gap: 15px; /* Adjust gap */
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min width for responsiveness */
+  gap: 15px; /* Adjust gap */
+  /* Added for vertical scroll on smaller screens */
+  max-height: calc(150vh - 350px); /* Adjust this value based on header/footer/other content height */
+  overflow-y: auto; /* Enable vertical scroll if content overflows */
+  padding-right: 10px; /* Space for scrollbar */
 }
 
 .article-item {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e5e7eb;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .article-item h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 1.2em; /* Adjust font size */
-    color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.2em; /* Adjust font size */
+  color: #1e293b;
 }
 
 .article-item .status {
-    padding: 5px 8px;
-    border-radius: 4px;
-    font-size: 0.7em;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 0.7em;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .article-item .status.published {
-    background-color: #d1fae5;
-    color: #10b981;
+  background-color: #d1fae5;
+  color: #10b981;
 }
 
 .article-item .status.draft {
-    background-color: #fee2e2;
-    color: #ef4444;
+  background-color: #fee2e2;
+  color: #ef4444;
 }
 
 .article-item .status.scheduled {
-    background-color: #fef3c7;
-    color: #eab308;
+  background-color: #fef3c7;
+  color: #eab308;
 }
 
 .article-item .actions {
-    margin-top: 15px;
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
+  margin-top: 15px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
 .article-item .actions button {
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8em;
-    transition: background-color 0.2s ease-in-out;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .article-item .actions button.edit-btn {
-    background-color: #60a5fa;
-    color: white;
+  background-color: #006400;
+  color: white;
 }
 
 .article-item .actions button.edit-btn:hover {
-    background-color: #3b82f6;
+  background-color: #fedd00;
+  box-shadow: 0 5px 15px rgba(254,221,0); /* Glow on hover */
 }
 
 .article-item .actions button.delete-btn {
-    background-color: #ef4444;
-    color: white;
+  background-color: #ef4444;
+  color: white;
 }
 
 .article-item .actions button.delete-btn:hover {
-    background-color: #dc2626;
+  background-color: #dc2626;
 }
 
 /* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
-    background-color: white;
-    padding: 20px; /* Adjust modal padding */
-    border-radius: 8px;
-    width: 95%; /* Make modal wider on small screens */
-    max-width: 700px; /* Adjust maximum modal width */
-    position: relative;
-    overflow-y: auto;
-    max-height: 90vh;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 20px; /* Adjust modal padding */
+  border-radius: 8px;
+  width: 95%; /* Make modal wider on small screens */
+  max-width: 700px; /* Adjust maximum modal width */
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .modal h2 {
-    margin-top: 0;
-    margin-bottom: 15px; /* Adjust modal heading margin */
-    color: #1e293b;
-    font-size: 1.5em; /* Adjust modal heading font size */
+  margin-top: 0;
+  margin-bottom: 15px; /* Adjust modal heading margin */
+  color: #1e293b;
+  font-size: 1.5em; /* Adjust modal heading font size */
 }
 
 .modal .close-button {
-    position: absolute;
-    top: 10px; /* Adjust close button position */
-    right: 15px; /* Adjust close button position */
-    font-size: 1.2em; /* Adjust close button font size */
-    cursor: pointer;
-    color: #4b5563;
-    transition: color 0.2s ease-in-out;
+  position: absolute;
+  top: 10px; /* Adjust close button position */
+  right: 15px; /* Adjust close button position */
+  font-size: 1.2em; /* Adjust close button font size */
+  cursor: pointer;
+  color: #4b5563;
+  transition: color 0.2s ease-in-out;
 }
 
 .modal .close-button:hover {
-    color: #1e293b;
+  color: #1e293b;
 }
 
 /* Form */
 #article-form .form-group {
-    margin-bottom: 15px; /* Adjust form group margin */
+  margin-bottom: 15px; /* Adjust form group margin */
 }
 
 #article-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #4b5563;
-    font-size: 0.9em;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #4b5563;
+  font-size: 0.9em;
 }
 
 #article-form input[type="text"],
@@ -479,177 +490,254 @@ header h1 {
 #article-form textarea,
 #article-form input[type="file"],
 #article-form select {
-    width: calc(100% - 12px); /* Adjust input width */
-    padding: 8px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 0.9em;
-    color: #374151;
+  width: calc(100% - 12px); /* Adjust input width */
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 0.9em;
+  color: #374151;
 }
 
 #article-form textarea.rich-text-editor {
-    min-height: 200px; /* Adjust editor height */
+  min-height: 200px; /* Adjust editor height */
 }
 
 #article-form input[type="checkbox"] {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 #article-form button.save-article-btn {
-    background-color: #10b981;
-    color: white;
-    border: none;
-    padding: 10px 20px; /* Adjust save button padding */
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s ease-in-out;
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 10px 20px; /* Adjust save button padding */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out;
 }
 
 #article-form button.save-article-btn:hover {
-    background-color: #059669;
+  background-color: #fedd00;
+  box-shadow: 0 5px 15px rgba(254,221,0); /* Glow on hover */
 }
 
-
-
+/* Footer Styles (keep existing styles) */
 .footer {
-    background-color: #006400; /* Dark blue background */
-    color: #ffffff; /* White text */
-    font-family: Arial, sans-serif;
-    padding: 20px 0;
-  }
-  
-  .footer h3 {
-    margin-bottom: 10px;
-    color: #ffffff; /* Light blue heading */
-  }
-  
+  background-color: #006400; /* Dark blue background */
+  color: #ffffff; /* White text */
+  font-family: Arial, sans-serif;
+  padding: 20px 0;
+}
+
+.footer h3 {
+  margin-bottom: 10px;
+  color: #ffffff; /* Light blue heading */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 20px;
+}
+
+/* About Section */
+.footer-section.about {
+  flex: 1 1 300px; /* Flexible size for smaller screens */
+  text-align: center;
+}
+
+.footer-logo {
+  width: 80px;
+  margin: 10px 0;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Quick Links */
+.footer-section.quick-links {
+  flex: 1 1 200px;
+}
+
+.footer-section.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section.quick-links ul li {
+  margin: 5px 0;
+}
+
+.footer-section.quick-links ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.footer-section.quick-links ul li a:hover {
+  color: #ffcc00; /* Hover color */
+}
+
+/* Map Section */
+.footer-section.map {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 200px;
+  border: none;
+  overflow: hidden;
+}
+
+.map-placeholder iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px; /* Rounded corners for map */
+}
+
+/* Social Media Icons */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Spacing between icons */
+  margin: 20px 0;
+}
+
+.footer-socials a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.footer-socials a img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer-socials a:hover {
+  transform: scale(1.2); /* Slight zoom on hover */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  border-top: 1px solid #013220
+}
+
+.footer-bottom span {
+  color: #00bfff; /* Highlighted name */
+}
+
+/* Responsive Footer Design */
+@media (max-width: 768px) {
   .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 5%;
-    gap: 20px;
+      flex-direction: column;
+      text-align: center;
   }
-  
-  /* About Section */
-  .footer-section.about {
-    flex: 1 1 300px; /* Flexible size for smaller screens */
-    text-align: center;
+
+  .footer-section {
+      margin-bottom: 15px;
   }
-  
-  .footer-logo {
-    width: 80px;
-    margin: 10px 0;
-  }
-  
-  .footer p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  /* Quick Links */
-  .footer-section.quick-links {
-    flex: 1 1 200px;
-  }
-  
-  .footer-section.quick-links ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-section.quick-links ul li {
-    margin: 5px 0;
-  }
-  
-  .footer-section.quick-links ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-section.quick-links ul li a:hover {
-    color: #ffcc00; /* Hover color */
-  }
-  
-  /* Map Section */
-  .footer-section.map {
-    flex: 1 1 300px;
-    text-align: center;
-  }
-  
-  .map-placeholder {
-    width: 100%;
-    height: 200px;
-    border: none;
-    overflow: hidden;
-  }
-  
-  .map-placeholder iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 8px; /* Rounded corners for map */
-  }
-  
-  /* Social Media Icons */
-  .footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Spacing between icons */
-    margin: 20px 0;
-  }
-  
+}
+
+@media (max-width: 480px) {
   .footer-socials a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease;
+      width: 30px;
+      height: 30px;
   }
-  
-  .footer-socials a img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+
+  .footer p {
+      font-size: 12px;
   }
-  
-  .footer-socials a:hover {
-    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+/* --- New / Modified Styles for Admin Dashboard --- */
+
+/* Mobile Warning Message */
+.mobile-warning {
+  display: none; /* Hidden by default */
+  background-color: #ffeb3b; /* Yellow background */
+  color: #006400;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-bottom: 2px solid #fbc02d;
+  margin-bottom: 10px; /* Space below the warning */
+}
+
+@media (max-width: 768px) {
+  .mobile-warning {
+      display: block; /* Show on smaller screens */
   }
-  
-  /* Footer Bottom */
-  .footer-bottom {
-    text-align: center;
-    font-size: 13px;
-    padding-top: 10px;
-    border-top: 1px solid #013220
+  /* Adjust dashboard container height to accommodate the warning */
+  .dashboard-container {
+      height: auto; /* Remove fixed height on small screens */
+      min-height: calc(100vh - 120px); /* Adjust based on actual header/footer heights */
+      padding-bottom: 20px; /* More flexible padding */
   }
-  
-  .footer-bottom span {
-    color: #00bfff; /* Highlighted name */
+  .main-content {
+      padding-top: 0; /* No extra padding if warning is there */
   }
-  
-  /* Responsive Footer Design */
-  @media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-  
-    .footer-section {
-        margin-bottom: 15px;
-    }
+}
+
+/* Vertical Scroll for Article List on Smaller Devices */
+@media (max-width: 768px) {
+  .article-list {
+      /*
+      The max-height here is crucial. It needs to be calculated to fit remaining space.
+      You might need to fine-tune `350px` based on the exact heights of your
+      dashboard header, actions bar, and footer on smaller screens.
+      A common approach is `calc(100vh - (height_of_header + height_of_actions + height_of_footer + padding_margins))`.
+      For simplicity, I've used a fixed px value, but monitor its behavior.
+      */
+      max-height: calc(100vh - 350px); /* Example: 100vh minus space taken by other elements */
+      overflow-y: auto; /* Enable vertical scrolling */
+      padding-right: 10px; /* Add some space for the scrollbar */
   }
-  
-  @media (max-width: 480px) {
-    .footer-socials a {
-        width: 30px;
-        height: 30px;
-    }
-  
-    .footer p {
-        font-size: 12px;
-    }
+}
+
+/* Arrange Header Items (Logout Button and Admin Name) */
+/* Already quite good with flex, but adding explicit wrap and ensuring spacing */
+header.dashboard-header { /* Targeting the specific header inside main-content */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if space is limited */
+  justify-content: space-between; /* Ensures main items are pushed to ends */
+  align-items: center; /* Vertically aligns items */
+  gap: 15px 20px; /* Row and column gap for wrapped items */
+}
+
+/* Ensure user-info doesn't get too squashed and wraps nicely */
+.header-user-actions {
+  flex-grow: 1; /* Allows it to take available space */
+  display: flex;
+  flex-wrap: wrap; /* Allow user-info and logout to wrap */
+  justify-content: flex-end; /* Align to the right, even if wrapped */
+  align-items: center;
+  gap: 10px; /* Space between user info and logout */
+}
+
+/* Adjustments for very small screens for the dashboard header */
+@media (max-width: 480px) {
+  header.dashboard-header {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align stacked items to the start */
+      gap: 10px;
   }
-  
+  .header-user-actions {
+      width: 100%; /* Take full width when stacked */
+      justify-content: flex-start; /* Align to left when stacked */
+  }
+}

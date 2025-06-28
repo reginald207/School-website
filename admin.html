@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Articles</title>
+    <title>Admin Dashboard - Oda Senior High School</title>
     <link rel="stylesheet" href="adminstyles.css">
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="adminscript.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
 </head>
 
 <header class="header">
     <div class="logo-container">
-        <a href="index.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
+        <a href="osco.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
         <span class="site-name">Oda Senior High School</span>
     </div>
 
-
-    
-
-      
-    
     <!-- Menu Toggle Button -->
     <button id="menu-toggle" class="menu-toggle">
         <div class="bar"></div>
@@ -32,10 +32,10 @@
     <!-- Navigation Links -->
     <nav class="nav">
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="osco.html">Home</a></li>
             <li><a href="about-osco.html">About</a></li>
             <li><a href="Academics-osco.html">Academics</a></li>
-            <li><a href="blogpage">News and Events</a></li>
+            <li><a href="news and events-osco.html">News and Events</a></li>
             <li><a href="contact-osco.html">Contact</a></li>
         </ul>
     </nav>
@@ -44,10 +44,10 @@
 <!-- Mobile Menu Drawer -->
 <div id="mobile-menu" class="mobile-menu">
     <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="osco.html">Home</a></li>
         <li><a href="about-osco.html">About</a></li>
         <li><a href="Academics-osco.html">Academics</a></li>
-        <li><a href="blogpage.html">News</a></li>
+        <li><a href="news and events-osco.html">News</a></li>
         <li><a href="contact-osco.html">Contact</a></li>
     </ul>
     <hr style="width: 45%; height: 1px;  margin-left: auto; margin-right: auto;">
@@ -68,23 +68,27 @@
           <img src="tik-tok.png" width= "18%" alt="LinkedIn">
       </a>
     </div>
-    
 </div>
-
 
  <!-- Scroll Indicator -->
  <div class="progress-container">
     <div class="progress-bar" id="progressBar"></div>
 </div>
 
-
 <body>
     <div class="dashboard-container">
+        <!-- Message for smaller screens -->
+        <div class="mobile-warning">
+            <p>For a better experience, please use a larger screen device.</p>
+        </div>
+
         <main class="main-content">
-            <header>
+            <header class="dashboard-header"> <!-- Added a specific class for dashboard header -->
                 <h1>Article Management</h1>
-                <div class="user-info" id="user-display"></div>
-                <button class="logout-btn" onclick="logoutUser()">Logout</button>
+                <div class="header-user-actions"> <!-- New container for user info and logout -->
+                    <div class="user-info" id="user-display"></div>
+                    <button class="logout-btn" onclick="logoutUser()">Logout</button>
+                </div>
             </header>
 
             <sectiond id="articles" class="content-section active">
@@ -174,7 +178,7 @@
             <!-- About Section -->
             <div class="footer-section about">
                 <h3>About Us</h3>
-                <a href="index.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
+                <a href="osco.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
                   <p></p>Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.
       
       
@@ -191,10 +195,10 @@
                 <h3>Quick Links</h3>
                 <ul>
                   <pre> </pre>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="osco.html">Home</a></li>
                     <li><a href="about-osco.html">About Us</a></li>
                     <li><a href="Academics-osco.html">Academics</a></li>
-                    <li><a href="blogpage.html">News and Events</a></li>
+                    <li><a href="news and events-osco.html">News and Events</a></li>
                     <li><a href="contact-osco.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -235,8 +239,8 @@
         <!-- Footer Bottom -->
         <div class="footer-bottom">
             <p>
-                Copyright 2025 - All rights reserved | Oda Senior High School | <br>
-                <span>.</span>
+                Copyright 2024 - All rights reserved | Oda Senior High School | <br>
+                <span>Joel Reginald Osei</span>
             </p>
         </div>
       </footer>

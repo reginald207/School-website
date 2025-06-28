@@ -1,8 +1,3 @@
-
-
-
-
-
 // Drawer
 // Select Elements
 const menuToggle = document.getElementById("menu-toggle");
@@ -34,36 +29,6 @@ window.addEventListener("resize", () => {
         menuToggle.classList.remove("active");
     }
 });
-
-
-
-
-        // Update progress bar on scroll
-        window.onscroll = function () {
-            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (scrollTop / scrollHeight) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        };
-
-
-        
-        
-
-
-
-
-
-// search functionality
-
- // Redirect to the search page when the search button is clicked
-document.getElementById('searchButton').addEventListener('click', () => {
-  window.location.href = '/search.html'; // Update the path to the actual search page file
-});
-
-
-
-
 
 
 /// carousel ///
@@ -116,12 +81,51 @@ const track = document.querySelector('.carousel-track');
 
 
 
-    
 
 
 
 
-    
+
+
+
+
+
+        // Update progress bar on scroll
+        window.onscroll = function () {
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (scrollTop / scrollHeight) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+
+        
+        
+
+
+
+
+
+// search functionality
+
+ // Redirect to the search page when the search button is clicked
+document.getElementById('searchButton').addEventListener('click', () => {
+  window.location.href = '/search.html'; // Update the path to the actual search page file
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

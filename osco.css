@@ -596,11 +596,11 @@ body {
   display: block;
   width: 70px;
   height: 4px;
-  
+  background-color: #ffcc00; /* Yellow underline */
   margin: 15px auto 0;
   border-radius: 2px;
 }
-
+  
 .news-container {
   display: flex; /* Use flexbox for the cards */
   justify-content: center; /* Center the cards */
@@ -1226,206 +1226,102 @@ audio {
 
 /* Gallery */
 /* Gallery Section */
-.gallery-section {
-  padding: 2rem 1rem;
-  text-align: center;
-  background-color: #f8f8f8;
-}
+    .gallery-section {
+      padding: 3rem 2rem;
+      background: #f9f9f9;
+      text-align: center;
+    }
 
-.gallery-title {
-  font-size: 2rem;
-  color: #000;
-  margin-bottom: 1.5rem;
-  font-weight: bold;
-}
+    .gallery-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
 
-/* Grid Layout for Gallery */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 0 1rem;
+    }
 
-/* Individual Gallery Items */
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
+    .gallery-item img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-.gallery-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  transition: filter 0.3s ease-in-out;
-}
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
 
-/* Overlay Text */
-.gallery-item .overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.4); /* Dim effect */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 1.2rem;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out;
-}
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-.gallery-item:hover .overlay {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.6); /* Brighter overlay */
-}
+    .lightbox.show {
+      display: flex;
+    }
 
-.gallery-item:hover img {
-  filter: brightness(0.7);
-}
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
 
-.gallery-item:hover {
-  transform: scale(1.05);
-}
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
 
-/*For gallery display*/
-body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .navbg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
+    .prev {
+      left: 20px;
+    }
 
-        .gallery-item {
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+    .next {
+      right: 20px;
+    }
 
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 16px;
-            display: none;
-        }
-
-        .gallery-item:hover .description {
-            display: block;
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 10px;
-        }
-
-        /* Remove outline and border for buttons */
-        button, .arrow-btn, .close-btn {
-          outline: none;
-          border: none;
+    @media (max-width: 768px) {
+      .close {
+        font-size: 2rem;
+        top: 10px;
+        right: 15px;
       }
 
-      /* Style the buttons */
-      .arrow-btn, .close-btn {
-          background: none;
-          cursor: pointer;
-          color: white;
-          font-size: 65px;
+      .navbg {
+        font-size: 2.5rem;
       }
-
-      /* Add a smooth transition for buttons */
-      .arrow-btn:hover, .close-btn:hover {
-          opacity: 0.8;
-      }
-
-      .lightbox .close-btn {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          color: white;
-          font-size: 30px;
-          cursor: pointer;
-      }
-
-      .lightbox .arrow-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          color: white;
-          font-size: 30px;
-          cursor: pointer;
-          background: none;
-          padding: 10px;
-          border-radius: 50%;
-      }
-      
-
-      .lightbox .arrow-left {
-          left: 20px;
-      }
-
-      .lightbox .arrow-right {
-          right: 20px;
-          justify-content: flex-end;
-      }
-
-      /* For mobile view */
-      @media (max-width: 768px) {
-          .gallery {
-              grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          }
-
-          .lightbox img {
-              max-width: 100%;
-              max-height: 70%;
-          }
-      }
+    }
 
 
 

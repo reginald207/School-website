@@ -3,25 +3,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Oda Senior High Official Website.">
-    <meta name="keywords" content="odasco, oda, ODASCO, Odasco, OSCO, OSHS, Senior high, senior high, Oda senior high, Oda">
-    <meta name="author" content="ODASCO">
-
-
-     <!-- Open Graph for social media -->
-     <meta property="og:title" content="Responsive Image Gallery">
-     <meta property="og:description" content="A beautifully designed responsive image gallery with intuitive navigation.">
-     <meta property="og:image" content="https://yourwebsite.com/gallery-preview.jpg">
-     <meta property="og:url" content="https://yourwebsite.com">
-     
-     <!-- Favicon -->
-     <link rel="icon" type="image/png" href="logo.png">
-     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-     
-<title>Home - Oda Senior High School</title>
+    <title>Home - Oda Senior High School</title>
     <link rel="stylesheet" href="osco.css">
+    <!-- IMPORTANT: Firebase SDKs MUST be loaded first in the HEAD -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -31,18 +24,14 @@
     <!-- Header Section -->
     <header class="header">
         <div class="logo-container">
-            <a href="index.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
+            <a href="osco.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
             <span class="site-name">Oda Senior High School</span>
         </div>
 
 
         
 
-        <nav>
-            <!-- Search Icon Image -->
-            <img id="searchButton" src="search.png" alt="Search" style="cursor: pointer; width: 24px; height: 24px;">
-          </nav>
-          
+      
           
         
         <!-- Menu Toggle Button -->
@@ -55,7 +44,7 @@
         <!-- Navigation Links -->
         <nav class="nav">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="osco.html">Home</a></li>
                 <li><a href="about-osco.html">About</a></li>
                 <li><a href="Academics-osco.html">Academics</a></li>
                 <li><a href="blogpage.html">News and Events</a></li>
@@ -67,7 +56,7 @@
     <!-- Mobile Menu Drawer -->
     <div id="mobile-menu" class="mobile-menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="osco.html">Home</a></li>
             <li><a href="about-osco.html">About</a></li>
             <li><a href="Academics-osco.html">Academics</a></li>
             <li><a href="blogpage.html">News</a></li>
@@ -116,14 +105,62 @@
 
 
   
-    <div class="section">
-        <div class="image-container"></div>
-        <div class="text-container">
-            <h1>ABOUT US</h1>
-            <p>
-                Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.
-        </div>
+    <section class="about-section">
+  <div class="about-content">
+    <div class="about-image">
+      <img src="sch3.jpg" alt="About us image">
     </div>
+    <div class="about-text">
+      <h2 class="aboutsectionh2">ABOUT OUR SCHOOL</h2>
+      <p>
+        We are committed to academic excellence and nurturing young minds to become future leaders.
+        Our environment fosters curiosity, creativity, and confidence in every learner.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+    <!--CTA Carousel-->
+<section class="carousel" id="carousel">
+  <!-- Slide 1 -->
+  <div class="slide active" style="background-image: url('bgr.jpg');">
+    <div class="overlay top-left">
+      <h1 data-text="Welcome to Our School">Welcome to Our School</h1>
+      <p>Where learning meets excellence.</p>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide" style="background-image: url('bg.jpg');">
+    <div class="overlay bottom-right">
+      <h1 data-text="Inspiring Young Minds">Inspiring Young Minds</h1>
+      <p>Empowering the future through education.</p>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide" style="background-image: url('sch3.jpg');">
+    <div class="overlay center">
+      <h1 data-text="A Place to Grow">A Place to Grow</h1>
+      <p>Supportive environment for every learner.</p>
+    </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown" id="countdown">8</div>
+
+  <!-- Navigation Buttons -->
+  <div class="navbr">
+    <button id="prevBtn">‹ Prev</button>
+    <button id="nextBtn">Next ›</button>
+  </div>
+</section>
+
+
+
+    
     
     <!-- Services Section -->
     <section class="services-section">
@@ -193,82 +230,24 @@
 
  <!-- News & Events Section -->
  <section class="news-events">
-  <h2>NEWS & EVENTS</h2>
-  <div class="news-container">
-      <!-- Card 1 -->
-      <div class="news-card">
-          <img src="bg.jpg" alt="Tennis Court">
-          <div class="news-info">
-              <span class="tag news-tag">NEWS</span>
-              <p>NEWS ITEM 1</p>
-          </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="news-card">
-          <img src="bg.jpg" alt="National Accounting">
-          <div class="news-info">
-              <span class="tag news-tag">NEWS</span>
-              <p>NEWS ITEM 2</p>
-          </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="news-card">
-          <img src="bg.jpg" alt="Business Quiz">
-          <div class="news-info">
-              <span class="tag event-tag">EVENTS</span>
-              <p>NEWS ITEM 3</p>
-          </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="news-card">
-        <img src="bg.jpg" alt="Business Quiz">
-        <div class="news-info">
-            <span class="tag event-tag">EVENTS</span>
-            <p>NEWS ITEM 4</p>
-        </div>
-        
+    <h2>NEWS & EVENTS</h2>
+    <div class="news-container" id="homepage-news-container">
+        <!-- News cards will be dynamically loaded here by JavaScript -->
+        <p id="loading-news" style="text-align: center; color: #555;">Loading latest news...</p>
+        <p id="no-news-found" style="text-align: center; color: #555; display: none;">No latest news found.</p>
     </div>
-
-    <div class="news-card">
-        <img src="bg.jpg" alt="Business Quiz">
-        <div class="news-info">
-            <span class="tag event-tag">EVENTS</span>
-            <p>NEWS ITEM 4</p>
-        </div>
-        
+    <div class="view-all-news-container">
+        <a href="news and events-osco.html" class="view-all-news-btn">View All News & Events</a>
     </div>
-
-    <div class="news-card">
-        <img src="bg.jpg" alt="Business Quiz">
-        <div class="news-info">
-            <span class="tag event-tag">EVENTS</span>
-            <p>NEWS ITEM 4</p>
-        </div>
-        
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tg_PLQQVXKs?si=6EpkY5hK5Vvo2YVN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tg_PLQQVXKs?si=6EpkY5hK5Vvo2YVN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
-
-    <div class="news-card">
-        <img src="bg.jpg" alt="Business Quiz">
-        <div class="news-info">
-            <span class="tag event-tag">EVENTS</span>
-            <p>NEWS ITEM 4</p>
-        </div>
-        
-    </div>
-  </div>
-  <pre>
-    
-  </pre>
-
-  <div class="video-container">
-    <!-- Video 1 -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/tg_PLQQVXKs?si=6EpkY5hK5Vvo2YVN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/tg_PLQQVXKs?si=6EpkY5hK5Vvo2YVN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-    
 </section>
+
+<!-- Your existing Footer -->
+
+
 
 
 
@@ -376,7 +355,7 @@
         <div class="carousel-item">
             <img src="Rear-Admiral-Seth-Amoama.jpg" alt="Alumni 4">
             <h3>Vice Admiral Seth Amoama </h3>
-            <p>Chief of Defence Staff - Ghana Armed Forces (2021-2024)</p>
+            <p>Chief of DEfence Staff - Ghana Armed Forces (2021-2024)</p>
         </div>
         <div class="carousel-item">
             <img src="akwasiaquah.jpeg" alt="Alumni 4">
@@ -395,30 +374,6 @@
         <button class="carousel-arrow right">&#10095;</button>
     </div>
 
-    <div class="carousel-pagination">
-        <span class="carousel-dot active"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-    </div>
 </div>
       
       
@@ -433,7 +388,7 @@
       <!-- About Section -->
       <div class="footer-section about">
           <h3>About Us</h3>
-          <a href="index.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
+          <a href="osco.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
             <p></p>Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.
 
 
@@ -450,7 +405,7 @@
           <h3>Quick Links</h3>
           <ul>
             <pre> </pre>
-              <li><a href="index.html">Home</a></li>
+              <li><a href="osco.html">Home</a></li>
               <li><a href="about-osco.html">About Us</a></li>
               <li><a href="Academics-osco.html">Academics</a></li>
               <li><a href="blogpage.html">News and Events</a></li>
@@ -494,15 +449,16 @@
   <!-- Footer Bottom -->
   <div class="footer-bottom">
       <p>
-          Copyright 2025 - All rights reserved | Oda Senior High School | <br>
-          <span>.</span>
+          Copyright 2024 - All rights reserved | Oda Senior High School | <br>
+          <span>Joel Reginald Osei</span>
       </p>
   </div>
 </footer>
 
-
-    <script src="osco.js"></script>
-
+<!-- Load general UI script first -->
+<script src="osco.js" defer></script>
+<!-- Load the news loader script second -->
+<script src="newshome.js" defer></script>
 </body>
 </html>
 

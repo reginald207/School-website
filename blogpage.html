@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Blog</title>
+    <title>News and Events - Oda Senior High School</title>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <link rel="stylesheet" href="blogstyle.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
 </head>
 <body>
 
     <header class="header">
         <div class="logo-container">
-            <a href="index.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
+            <a href="osco.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
             <span class="site-name">Oda Senior High School</span>
         </div>
 
-
-        
-
-          
-        
         <!-- Menu Toggle Button -->
         <button id="menu-toggle" class="menu-toggle">
             <div class="bar"></div>
@@ -31,10 +33,10 @@
         <!-- Navigation Links -->
         <nav class="nav">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="osco.html">Home</a></li>
                 <li><a href="about-osco.html">About</a></li>
                 <li><a href="Academics-osco.html">Academics</a></li>
-                <li><a href="blogpage.html">News and Events</a></li>
+                <li><a href="news and events-osco.html">News and Events</a></li>
                 <li><a href="contact-osco.html">Contact</a></li>
             </ul>
         </nav>
@@ -43,10 +45,10 @@
     <!-- Mobile Menu Drawer -->
     <div id="mobile-menu" class="mobile-menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="osco.html">Home</a></li>
             <li><a href="about-osco.html">About</a></li>
             <li><a href="Academics-osco.html">Academics</a></li>
-            <li><a href="blogpage.html">News</a></li>
+            <li><a href="news and events-osco.html">News</a></li>
             <li><a href="contact-osco.html">Contact</a></li>
         </ul>
         <hr style="width: 45%; height: 1px;  margin-left: auto; margin-right: auto;">
@@ -67,28 +69,35 @@
               <img src="tik-tok.png" width= "18%" alt="LinkedIn">
           </a>
         </div>
-        
     </div>
 
-    
-     <!-- Scroll Indicator -->
-     <div class="progress-container">
+    <!-- Scroll Indicator -->
+    <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <div class="hero-section">
+    <!-- Hero Section (will be hidden on full post view by JS/CSS) -->
+    <div class="hero-section" id="hero-section">
         <div class="hero-content">
             <h1>School Blog</h1>
+            <!-- Search input remains here, will be moved dynamically by JS for full post view -->
             <input type="text" id="search-input" placeholder="Search...">
         </div>
     </div>
 
-    <a href="login.html" class="admin-login-button">
+    <!-- Admin Login Button (will be hidden on full post view by JS/CSS) -->
+    <a href="login.html" class="admin-login-button" id="admin-login-button">
         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.63 122.88"><title>log-in</title><path d="M33.27,68.66H7.15a7.23,7.23,0,0,1,0-14.45H33.27l-8.48-9.46a7.25,7.25,0,0,1,.5-10.16,7.07,7.07,0,0,1,10.06.5L54.62,56.61a7.25,7.25,0,0,1-.06,9.72L35.35,87.78a7.07,7.07,0,0,1-10.06.5,7.25,7.25,0,0,1-.5-10.16l8.48-9.46Zm16.25,54.08a7.22,7.22,0,1,1-2.83-14.17l3.39-.67c16.33-3.24,25.1-5.09,25.1-27.69V40.63c0-21-9.34-22.76-24.8-25.65l-3.63-.68A7.21,7.21,0,1,1,49.46.13L53,.81c22.82,4.26,36.6,6.84,36.6,39.82V80.21c0,34.43-12.84,37.11-36.74,41.85l-3.37.68Z"/></svg>
     </a>
 
     <main id="blog-container">
-        </main>
+        <!-- Blog posts (excerpts) or Full Post will be dynamically loaded here by JavaScript -->
+        <!-- When showing full post, JS will populate this with two main divs:
+             <div class="full-post-content-area"> for the main article and "You Might Also Like"
+             <div class="full-post-sidebar"> for the right sidebar with search, recent posts, comments
+        -->
+    </main>
+
   <!-- Footer Section -->
   <footer class="footer">
     <!-- Top Footer Content -->
@@ -96,27 +105,18 @@
         <!-- About Section -->
         <div class="footer-section about">
             <h3>About Us</h3>
-            <a href="index.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
-              <p></p>Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.
-  
-  
-  
-  
-  
-  
-  
-            </p>
+            <a href="osco.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
+              <p>Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.</p>
         </div>
   
         <!-- Quick Links Section -->
         <div class="footer-section quick-links">
             <h3>Quick Links</h3>
             <ul>
-              <pre> </pre>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="osco.html">Home</a></li>
                 <li><a href="about-osco.html">About Us</a></li>
                 <li><a href="Academics-osco.html">Academics</a></li>
-                <li><a href="blogpage.html">News and Events</a></li>
+                <li><a href="news and events-osco.html">News and Events</a></li>
                 <li><a href="contact-osco.html">Contact Us</a></li>
             </ul>
         </div>
@@ -157,8 +157,8 @@
     <!-- Footer Bottom -->
     <div class="footer-bottom">
         <p>
-            Copyright 2025 - All rights reserved | Oda Senior High School | <br>
-            <span>.</span>
+            Copyright 2024 - All rights reserved | Oda Senior High School | <br>
+            <span>Joel Reginald Osei</span>
         </p>
     </div>
   </footer>

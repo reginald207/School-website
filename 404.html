@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 - Page Not Found</title>
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0 30px;
+    }
+    a {
+      display: inline-block;
+      background-color: #006400;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    a:hover {
+      background-color: #ffcc00;
+      box-shadow: 0 5px 15px rgba(254,221,0); /* Glow on hover */
+    }
+    dotlottie-player {
+      max-width: 320px;
+      width: 100%;
+      margin: auto;
+    }
+    #countdown {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <dotlottie-player 
+    src="https://lottie.host/0984f842-f461-45ae-976f-04421fb866fe/xV8Rm2ax8O.lottie" 
+    background="transparent" 
+    speed="1" 
+    style="width: 300px; height: 300px" 
+    loop 
+    autoplay>
+  </dotlottie-player>
+
+  <h1>404 - Page Not Found</h1>
+  <p>Oops! Looks like this page doesn’t exist.</p>
+  <a href="https://odashs.vercel.app/index">Go Back Home</a>
+  <p id="countdown">Redirecting in <span id="timer">12</span> seconds...</p>
+
+  <script>
+    let seconds = 8;
+    const timerEl = document.getElementById("timer");
+
+    const countdown = setInterval(() => {
+      seconds--;
+      timerEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        window.location.href = "https://odashs.vercel.app/index";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

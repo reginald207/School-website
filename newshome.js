@@ -231,7 +231,7 @@ function startCountdown() {
       timer--;
       countdown.textContent = timer;
       if (timer <= 0) {
-        timer = 6;
+        timer = 8;
         countdown.textContent = timer;
       }
     }
@@ -241,7 +241,7 @@ function startCountdown() {
 // Reset countdown on manual nav
 function resetCountdown() {
   clearInterval(countdownInterval);
-  timer = 6;
+  timer = 8;
   countdown.textContent = timer;
   startCountdown();
 }

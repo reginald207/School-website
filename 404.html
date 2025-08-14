@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Mobile scaling -->
   <title>Oda Senior High School | 404 - Page Not Found</title>
   <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <style>
@@ -30,10 +31,12 @@
       text-decoration: none;
       font-weight: bold;
       margin-bottom: 10px;
+      transition: all 0.3s ease;
     }
     a:hover {
       background-color: #ffcc00;
-      box-shadow: 0 5px 15px rgba(254,221,0); /* Glow on hover */
+      color: #333;
+      box-shadow: 0 5px 15px rgba(254, 221, 0, 0.7);
     }
     dotlottie-player {
       max-width: 320px;
@@ -45,6 +48,36 @@
       font-size: 1rem;
       color: #666;
     }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      a {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+      a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -52,7 +85,7 @@
     src="https://lottie.host/0984f842-f461-45ae-976f-04421fb866fe/xV8Rm2ax8O.lottie" 
     background="transparent" 
     speed="1" 
-    style="width: 300px; height: 300px" 
+    style="width: 100%; max-width: 300px; height: auto" 
     loop 
     autoplay>
   </dotlottie-player>

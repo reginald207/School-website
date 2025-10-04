@@ -11,9 +11,9 @@ body {
   background-color: #f4f4f4;
   color: #333;
   position: relative;
-  display: flex; /* Make body a flex container */
-  flex-direction: column; /* Stack children vertically */
-  min-height: 100vh; /* Ensure body takes full viewport height */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 768px) {
@@ -122,7 +122,7 @@ body {
 }
 
 .bar {
-  width: 100%;
+  width: 150%;
   height: 3px;
   background-color: #fff;
   transition: all 0.3s ease;
@@ -166,7 +166,6 @@ body {
 
 .mobile-menu ul li {
   margin: 10px 0;
-  /* overflow-y: scroll; */
 }
 
 .mobile-menu ul li a {
@@ -205,19 +204,19 @@ body {
 .progress-bar {
   height: 5px;
   width: 0%;
-  background: #4caf50; /* Green */
+  background: #4caf50;
   transition: width 0.1s ease-out;
 }
 
 /* Hero Section Styles */
 .hero-section {
-  background-image: url('sch3.jpg'); /* Replace with your image path */
+  background-image: url('sch3.jpg');
   background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
   min-height: 400px;
-  padding-top: 120px;
+  padding-top: 150px;
   padding-bottom: 120px;
   margin-bottom: 0;
   overflow: hidden;
@@ -226,7 +225,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Hero section now remains visible in full post view as requested */
 }
 
 .hero-content {
@@ -246,23 +244,33 @@ body {
   text-align: center;
 }
 
+/* Search container */
+.search-container {
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  margin: 10px auto;
+}
+
 /* Styling for search input in Hero Section */
-.hero-content input#search-input {
-  width: 80%; /* Default width */
-  max-width: 500px; /* Default maximum width */
+#search-input {
+  width: 70%;
   padding: 0.7em;
   border: none;
   border-radius: 5px;
   font-size: 1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: width 0.3s ease;
-  margin: 10px auto; /* Center the search bar */
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  background-color: rgba(255, 255, 255, 0.9);
   color: #333;
-  outline: none; /* Remove outline on focus */
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-.hero-content input#search-input::placeholder {
+#search-input:focus {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#search-input::placeholder {
   color: #666;
 }
 
@@ -298,120 +306,143 @@ body {
   fill: white;
 }
 
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #006400;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background-color: #004d00;
+}
+
 /* --- BLOG POST CARD STYLES (for initial grid view on main blog page) --- */
 #blog-container {
-  padding: 40px 20px; /* Padding around the entire grid */
+  padding: 40px 20px;
   width: 100%;
-  max-width: 1200px; /* Maximum width for the grid container */
-  margin: 20px auto; /* Center the blog container on the page */
-  display: grid; /* Enable CSS Grid for the layout */
-  /* Adjusts grid columns: cards will be at least 300px, but stretch to fill available 1fr space.
-     The max-width on .blog-post will then constrain individual card width. */
+  max-width: 1200px;
+  margin: 20px auto;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px; /* Space between cards */
-  flex-grow: 1; /* Allows the container to grow and push the footer down */
-  justify-items: center; /* Centers cards within their individual grid cells */
+  gap: 30px;
+  flex-grow: 1;
+  justify-items: center;
 }
 
 /* This targets ONLY the blog post cards displayed in the main #blog-container */
 #blog-container .blog-post {
   background-color: white;
-  border-radius: 10px; /* Rounded corners for the cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-  overflow: hidden; /* Ensures content (like images) respects border-radius and fixed height */
-  
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   display: flex;
-  flex-direction: column; /* Changed: Image on top, content below */
-  align-items: center; /* Center items horizontally within the card */
-  height: auto; /* Changed: Allow height to adjust based on content */
-  
-  opacity: 0; /* Initial state for animation */
-  transform: translateY(20px); /* Initial state for animation */
-  /* Transitions for smooth loading, hover effects, and shadow changes */
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  opacity: 0;
+  transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
-  
-  max-width: 400px; /* Adjusted max width to match the image better */
-  width: 100%; /* Ensures the card takes up the full width of its grid cell (up to max-width) */
-  justify-self: center; /* Centered in its grid cell */
+  max-width: 400px;
+  width: 100%;
+  justify-self: center;
 }
 
 #blog-container .blog-post.loaded {
-  opacity: 1; /* Fades in */
-  transform: translateY(0); /* Moves into position */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Lift Hover Animation for cards */
 #blog-container .blog-post:hover {
-  transform: translateY(-8px); /* Lifts the card slightly on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .blog-post-image-wrapper {
-  width: 100%; /* Changed: Image wrapper takes 100% of the card's width */
-  height: 180px; /* Fixed height for the image area */
+  width: 100%;
+  height: 180px;
   overflow: hidden;
-  background-color: #eee; /* Placeholder background color */
+  background-color: #eee;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0; /* Prevents the image section from shrinking when content grows */
+  flex-shrink: 0;
 }
 
 .blog-post-image-wrapper img {
-  width: 100%; /* Image fills the width of its wrapper */
-  height: 100%; /* Image fills the height of its wrapper */
-  object-fit: cover; /* Ensures the image covers the area without distortion, cropping as needed */
-  transition: transform 0.3s ease; /* Smooth zoom transition on hover */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .blog-post:hover .blog-post-image-wrapper img {
-  transform: scale(1.05); /* Slight zoom effect on the image when hovering over the card */
+  transform: scale(1.05);
 }
 
 .blog-post-content {
-  padding: 15px; /* Uniform padding inside the content area of the card */
+  padding: 15px;
   display: flex;
-  flex-direction: column; /* Stack title, meta, excerpt, and button vertically */
-  flex-grow: 1; /* Allows the content area to take up the remaining horizontal space */
-  justify-content: space-between; /* Distributes vertical space, pushing the "Read More" button to the bottom */
-  width: 100%; /* Ensure content takes full width within the card */
-  text-align: left; /* Align text to the left within the content area */
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
 }
 
 .blog-post-content h2 {
-  font-size: 1.4em; /* Adjusted title font size */
+  font-size: 1.4em;
   margin-top: 0;
-  margin-bottom: 8px; /* Reduced margin below the title */
+  margin-bottom: 8px;
   color: #1e293b;
   line-height: 1.3;
 }
 
 .blog-post-content .post-meta {
-  color: #777;
-  font-size: 0.85em; /* Smaller font size for meta information (date, author) */
-  margin-bottom: 10px; /* Reduced margin */
+  color: 777;
+  font-size: 0.85em;
+  margin-bottom: 10px;
 }
 
 .blog-post-content .excerpt {
-  font-size: 0.95em; /* Slightly smaller font size for the excerpt text */
+  font-size: 0.95em;
   color: #555;
-  margin-bottom: 15px; /* Reduced margin below the excerpt */
-  flex-grow: 1; /* Allows the excerpt to take up available vertical space */
-  
-  /* Text truncation for fixed height cards */
-  display: -webkit-box; /* Required for line clamping */
-  -webkit-line-clamp: 4; /* Increased to 4 lines as seen in the image */
-  -webkit-box-orient: vertical; /* Required for line clamping */
-  overflow: hidden; /* Hides content that exceeds the line limit */
-  text-overflow: ellipsis; /* Adds an ellipsis (...) if text is truncated */
+  margin-bottom: 15px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .read-more-btn {
-  font-size: 0.85em; /* Smaller font size for the "Read More" button */
-  padding-top: 5px; /* Adds a small space above the button */
-  align-self: flex-start; /* Aligns the button to the start (left) of the content area */
-  display: inline-block; /* Ensures padding and margin work correctly */
-  color: #006400; /* Blue for the link */
+  font-size: 0.85em;
+  padding-top: 5px;
+  align-self: flex-start;
+  display: inline-block;
+  color: #006400;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.2s ease;
@@ -422,94 +453,114 @@ body {
   transform: translateX(5px);
 }
 
-
 /* --- FULL POST LAYOUT STYLES --- */
 #blog-container.full-post-layout {
-  display: grid;
-  /* Main content (flexible 'fr' unit) | Sidebar (fractional unit) */
-  grid-template-columns: 3fr 1fr; /* Adjusted: Main content wider, sidebar narrower for image match */
-  gap: 30px;
+  display: block;
   padding: 40px 20px;
-  max-width: 1400px; /* Adjusted: Overall container max-width for better balance */
+  max-width: 900px;
   margin: 20px auto;
 }
 
 .full-post-main-content {
-  grid-column: 1 / 2; /* Main content in the first column */
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px; /* This padding provides internal spacing for content */
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.full-post-sidebar {
-  grid-column: 2 / 3; /* Sidebar in the second column */
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  padding: 80px; /* Reduced top padding */
-  padding-top: 20px;
-  padding-left: 30px;
-  padding-right: 110px;
+/* Post navigation controls */
+.post-navigation {
   display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Allow scrolling within sidebars if content is long */
-  max-height: 68vh; /* Adjusted: Sidebar height to 68vh */
-}
-
-.full-post-sidebar h3 {
-  margin-top: 0; /* Ensures no extra space above the heading */
+  justify-content: space-between;
   margin-bottom: 20px;
-  color: #1e293b;
-  font-size: 1.3em;
+  padding-bottom: 15px;
   border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  text-align: left; /* Align heading text to the left */
 }
 
-/* Sidebar News Item */
-.sidebar-news-item {
+.nav-button {
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #004d00;
+}
+
+.nav-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Share buttons */
+.share-buttons {
+  display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   text-decoration: none;
   color: #333;
-  transition: background-color 0.2s ease;
-  padding: 5px;
-  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
 }
 
-.sidebar-news-item:hover {
-  background-color: #f0f0f0;
+.share-button:hover {
+  background-color: #e9e9e9;
 }
 
-.sidebar-news-item img {
-  width: 60px; /* Small image size */
-  height: 60px;
-  object-fit: cover;
-  border-radius: 5px;
-  flex-shrink: 0;
+.share-button.facebook {
+  background-color: #3b5998;
+  color: white;
+  border-color: #3b5998;
 }
 
-.sidebar-news-item-content {
-  flex-grow: 1;
-  text-align: left; /* Ensure content within news item aligns left */
+.share-button.twitter {
+  background-color: #1da1f2;
+  color: white;
+  border-color: #1da1f2;
 }
 
-.sidebar-news-item-content h4 {
-  margin: 0;
-  font-size: 0.95em;
-  line-height: 1.3;
-  color: #1e293b;
+.share-button.linkedin {
+  background-color: #0077b5;
+  color: white;
+  border-color: #0077b5;
 }
 
-.sidebar-news-item-content .meta {
-  font-size: 0.75em;
+.share-button.whatsapp {
+  background-color: #25d366;
+  color: white;
+  border-color: #25d366;
+}
+
+
+
+/* Reading time */
+.reading-time {
   color: #777;
-  margin-top: 5px;
+  font-style: italic;
+  margin-bottom: 15px;
+  font-size: 0.9em;
 }
 
 /* Main Post Content within full-post-main-content */
@@ -518,7 +569,7 @@ body {
   margin-bottom: 15px;
   color: #333;
   line-height: 1.2;
-  overflow-wrap: break-word; /* Ensure long titles wrap */
+  overflow-wrap: break-word;
 }
 
 .main-post-meta {
@@ -527,26 +578,26 @@ body {
   margin-bottom: 20px;
 }
 
-.full-post-image-container { /* New container for main image in full post */
+.full-post-image-container {
   width: 100%;
-  max-height: 450px; /* Increased max height for main image */
+  max-height: 450px;
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eee; /* Placeholder for main image */
+  background-color: #eee;
 }
 
 .full-post-image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Image will cover the container */
+  object-fit: cover;
 }
 
 /* Other images below main article */
-.full-post-other-images { /* New container for additional images */
+.full-post-other-images {
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -556,7 +607,7 @@ body {
 }
 
 .full-post-other-images img {
-  width: 100%; /* Default for smaller screens, adjust below */
+  width: 100%;
   height: auto;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -566,18 +617,17 @@ body {
 /* Layout for multiple images side-by-side */
 @media (min-width: 769px) {
   .full-post-other-images[data-image-count="2"] img {
-      width: calc(50% - 5px); /* Two images side-by-side */
+      width: calc(50% - 5px);
       margin-bottom: 0;
   }
   .full-post-other-images[data-image-count="3"] img,
   .full-post-other-images[data-image-count="4"] img,
   .full-post-other-images[data-image-count="5"] img,
   .full-post-other-images[data-image-count="6"] img {
-      width: calc(33.33% - 7px); /* Three images per row for subsequent ones */
+      width: calc(33.33% - 7px);
       margin-bottom: 10px;
   }
 }
-
 
 /* Style for the headline (within main content) */
 .post-headline {
@@ -585,19 +635,19 @@ body {
   color: #444;
   margin-bottom: 15px;
   font-weight: bold;
-  overflow-wrap: break-word; /* Ensure long headlines wrap */
+  overflow-wrap: break-word;
 }
 
 .full-post-text {
   text-align: justify;
-  margin-bottom: 30px; /* Space before videos or "You Might Also Like" */
-  overflow-wrap: break-word; /* Ensure long words in text wrap */
+  margin-bottom: 30px;
+  overflow-wrap: break-word;
 }
 
 /* Video Layout (at the end of article) */
 .full-post-videos {
   margin-top: 30px;
-  margin-bottom: 30px; /* Space before "You Might Also Like" */
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -623,17 +673,11 @@ body {
   max-width: 560px;
 }
 
-/* Removed share buttons as per request */
-.share-buttons {
-  display: none; /* Explicitly hide share buttons as requested */
-}
-
-
 /* "You Might Also Like" Section */
 .you-might-also-like {
-  margin-top: 40px; /* Space above this section */
+  margin-top: 40px;
   padding-top: 20px;
-  border-top: 1px solid #eee; /* Separator line */
+  border-top: 1px solid #eee;
 }
 
 .you-might-also-like h3 {
@@ -650,65 +694,62 @@ body {
 }
 
 /* Override for .blog-post when it's inside the "You Might Also Like" grid */
-/* These cards revert to a vertical layout (image top, content bottom) and auto height */
 .you-might-also-like-grid .blog-post {
-  max-width: 100%; /* Allows cards to expand within their grid cell */
-  justify-self: stretch; /* Ensure it stretches to fill the grid cell */
-  height: auto; /* Allow height to adjust for these cards based on content */
-  flex-direction: column; /* Revert to column layout for these cards */
-  padding: 0; /* No padding on the blog-post itself, content-wrapper handles it */
+  max-width: 100%;
+  justify-self: stretch;
+  height: auto;
+  flex-direction: column;
+  padding: 0;
 }
 
 .you-might-also-like-grid .blog-post .blog-post-image-wrapper {
-  width: 100%; /* Image takes full width of the card */
-  height: 180px; /* Fixed height for image in this context */
-  min-height: unset; /* Remove min-height override from horizontal layout */
+  width: 100%;
+  height: 180px;
+  min-height: unset;
 }
 
 .you-might-also-like-grid .blog-post .blog-post-content {
-  padding: 15px; /* Reset padding for this context */
+  padding: 15px;
 }
 
 .you-might-also-like-grid .blog-post .blog-post-content h2 {
-  font-size: 1.4em; /* Revert title size for these cards */
+  font-size: 1.4em;
   margin-bottom: 8px;
 }
 .you-might-also-like-grid .blog-post .post-meta {
-  font-size: 0.85em; /* Revert meta size for these cards */
+  font-size: 0.85em;
   margin-bottom: 10px;
 }
 .you-might-also-like-grid .blog-post .excerpt {
-  font-size: 0.95em; /* Revert excerpt size for these cards */
-  -webkit-line-clamp: unset; /* Remove line clamp for these excerpts (allow full if desired) */
+  font-size: 0.95em;
+  -webkit-line-clamp: unset;
   margin-bottom: 15px;
 }
 .you-might-also-like-grid .blog-post .read-more-btn {
-  font-size: 1em; /* Revert read more button size */
-  padding-top: 0; /* Remove extra padding */
+  font-size: 1em;
+  padding-top: 0;
 }
 
-
 /* Style for the "Back to All Posts" button */
-.full-post-back-button { /* New class for the button */
-  background-color: #006400; /* Green color */
+.full-post-back-button {
+  background-color: #006400;
   color: white;
   border: none;
-  padding: 10px 20px; /* Comfortable padding */
-  border-radius: 8px; /* Slightly more rounded */
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 1em;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 30px; /* More space above the button */
-  align-self: flex-start; /* Align to the left within flex column */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  margin-top: 30px;
+  align-self: flex-start;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .full-post-back-button:hover {
-  background-color: #004d00; /* Darker green on hover */
-  transform: translateY(-2px); /* Slight lift on hover */
+  background-color: #004d00;
+  transform: translateY(-2px);
 }
-
 
 /* Footer General Styles */
 .footer {
@@ -716,8 +757,8 @@ body {
   color: #ffffff;
   font-family: Arial, sans-serif;
   padding: 20px 0;
-  flex-shrink: 0; /* Prevent footer from shrinking */
-  margin-top: auto; /* Push footer to the bottom if content is short */
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 .footer h3 {
@@ -825,6 +866,40 @@ body {
   color: #00bfff;
 }
 
+/* Custom Message Box Styles */
+.custom-message-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  z-index: 9999;
+  font-size: 1em;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: none;
+  animation: fadeInOut 3s forwards;
+}
+.custom-message-box.error {
+  background-color: #f44336;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* No results message */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 1.2em;
+}
+
 /* Responsive Layout for Smaller Screens (max-width: 768px) */
 @media (max-width: 768px) {
   .footer-container {
@@ -838,25 +913,13 @@ body {
 
   /* Full Post Layout Changes for Smaller Screens */
   #blog-container.full-post-layout {
-      grid-template-columns: 1fr; /* Stack columns */
       padding: 20px 0;
-      gap: 20px;
-      max-width: 100%; /* Ensure it takes full width on smaller screens */
-  }
-
-  .full-post-main-content {
-      grid-column: auto / auto; /* Reset grid column span */
-      width: 100%; /* Take full width of parent (which is now full viewport width) */
-      order: 0; /* Main content comes first */
-  }
-
-  .full-post-sidebar {
-      display: none; /* Hide sidebar on smaller devices as requested */
+      max-width: 100%;
   }
 
   .main-post-header h1 {
       font-size: 2em;
-      overflow-wrap: break-word; /* Ensure long titles wrap on small screens */
+      overflow-wrap: break-word;
   }
 
   .full-post-image-container {
@@ -865,8 +928,8 @@ body {
 
   /* Ensure videos never overflow on mobile */
   .full-post-videos iframe {
-      width: 100%; /* Force videos to fill their parent's width */
-      max-width: 100%; /* Explicitly cap at 100% of parent */
+      width: 100%;
+      max-width: 100%;
       height: auto;
       aspect-ratio: 16 / 9;
   }
@@ -876,7 +939,39 @@ body {
   }
 
   .you-might-also-like-grid {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, fr));
+  }
+
+  /* Keep navigation buttons on left and right even on mobile */
+  .post-navigation {
+      flex-direction: row;
+      gap: 10px;
+  }
+
+  .nav-button {
+      width: auto;
+      justify-content: center;
+      font-size: 0.9em;
+      padding: 8px 12px;
+  }
+
+  .share-buttons {
+      justify-content: center;
+  }
+  
+  .search-container {
+      width: 90%;
+  }
+  
+  .scroll-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+  }
+
+  .hero-content h1 {
+      font-size: 2.5em;
   }
 }
 
@@ -887,7 +982,7 @@ body {
 
   .post-headline {
       font-size: 1.4em;
-      overflow-wrap: break-word; /* Ensure long headlines wrap on extra small screens */
+      overflow-wrap: break-word;
   }
 
   .full-post-text {
@@ -896,7 +991,25 @@ body {
   }
 
   .full-post-back-button {
+      font-size: 0.9em;
+      padding: 8px 16px;
+  }
+
+  .hero-content h1 {
+      font-size: 2em;
+  }
+
+  #search-input {
+      font-size: 0.9em;
+  }
+
+  /* Adjust navigation buttons for very small screens */
+  .nav-button {
       font-size: 0.8em;
-      padding: 0.5em 1em;
+      padding: 6px 10px;
+  }
+
+  .nav-button i {
+      font-size: 0.9em;
   }
 }

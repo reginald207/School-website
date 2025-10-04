@@ -93,14 +93,6 @@ async function fetchAndDisplayLatestNews() {
                 newsCard.classList.add('loaded'); // Add 'loaded' class to trigger animation
             }, index * 150); // 150ms delay between each card to make them appear one by one
 
-            // Make the entire card clickable, linking to the full news/events page
-            // The `#post-${article.id}` is an anchor that the news/events page can use
-            // to potentially scroll to or highlight the specific article.
-            newsCard.addEventListener('click', () => {
-                console.log(`Navigating to news and events-osco.html#post-${article.id}`);
-                window.location.href = `blogpage.html#post-${article.id}`;
-            });
-
             // Determine the image URL for the card. Use the first image from imageUrls array,
             // or a placeholder if no images are available.
             const imageUrl = article.imageUrls && Array.isArray(article.imageUrls) && article.imageUrls.length > 0 ?
@@ -125,10 +117,17 @@ async function fetchAndDisplayLatestNews() {
                     </p>
                     <!-- Display a truncated excerpt or the beginning of the body -->
                     <p class="news-excerpt">${article.excerpt || (article.body ? article.body.substring(0, 100) + '...' : 'No excerpt available.')}</p>
-                    <!-- "Read More" link pointing to the full news/events page -->
-                    <a href="blogpage.html#post-${article.id}" class="read-more-link">Read More &rarr;</a>
+                    <!-- "Read More" link pointing to the specific news article -->
+                    <a href="blogpage.html#post-${article.id}" class="read-more-link" onclick="event.stopPropagation();">Read More &rarr;</a>
                 </div>
             `;
+            
+            // Make the entire card clickable, linking to the full news/events page
+            newsCard.addEventListener('click', () => {
+                console.log(`Navigating to blogpage.html#post-${article.id}`);
+                window.location.href = `blogpage.html#post-${article.id}`;
+            });
+            
             homepageNewsContainer.appendChild(newsCard); // Add the newly created card to the container
             console.log(`Card for '${article.title || 'Untitled'}' appended to container.`);
         });
@@ -146,12 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("DOMContentLoaded fired. Calling fetchAndDisplayLatestNews().");
     fetchAndDisplayLatestNews();
 });
-
-
-
-
-
-
 
 //CTA Carousel
 const slides = document.querySelectorAll('.slide');

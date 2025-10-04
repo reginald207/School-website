@@ -53,7 +53,7 @@
         </ul>
         <hr style="width: 45%; height: 1px;  margin-left: auto; margin-right: auto;">
         <div class="footer-socials">
-            <a href="https://web.facebook.com/profile.php?id=100064748688249" target="_blank">
+             <a href="https://web.facebook.com/profile.php?id=100064748688249" target="_blank">
                 <img src="communication.png" width= "25%" alt="Facebook">
             </a>
             <a href="https://www.instagram.com/odasco_media?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
@@ -74,22 +74,25 @@
     <div class="hero-section" id="hero-section">
         <div class="hero-content">
             <h1>Odasco News</h1>
-            <!-- Search input remains here, will be moved dynamically by JS for full post view -->
-            <input type="text" id="search-input" placeholder="Search...">
+            <!-- Search input with clear button container -->
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search articles...">
+            </div>
         </div>
     </div>
 
     <!-- Admin Login Button (will be hidden on full post view by JS/CSS) -->
     <a href="login.html" class="admin-login-button" id="admin-login-button">
-        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.63 122.88"><title>log-in</title><path d="M33.27,68.66H7.15a7.23,7.23,0,0,1,0-14.45H33.27l-8.48-9.46a7.25,7.25,0,0,1,.5-10.16,7.07,7.07,0,0,1,10.06.5L54.62,56.61a7.25,7.25,0,0,1-.06,9.72L35.35,87.78a7.07,7.07,0,0,1-10.06.5,7.25,7.25,0,0,1-.5-10.16l8.48-9.46Zm16.25,54.08a7.22,7.22,0,1,1-2.83-14.17l3.39-.67c16.33-3.24,25.1-5.09,25.1-27.69V40.63c0-21-9.34-22.76-24.8-25.65l-3.63-.68A7.21,7.21,0,1,1,49.46.13L53,.81c22.82,4.26,36.6,6.84,36.6,39.82V80.21c0,34.43-12.84,37.11-36.74,41.85l-3.37.68Z"/></svg>
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.63 122.88"><title>log-in</title><path d="M33.27,68.66H7.15a7.23,7.23,0,0,1,0-14.45H33.27l-8.48-9.46a7.25,7.25,0,0,1,.5-10.16,7.07,7.07,0,0,1,10.06.50L54.62,56.61a7.25,7.25,0,0,1-.06,9.72L35.35,87.78a7.07,7.07,0,0,1-10.06.50,7.25,7.25,0,0,1-.50-10.16l8.48-9.46Zm16.25,54.08a7.22,7.22,0,1,1-2.83-14.17l3.39-.67c16.33-3.24,25.10-5.09,25.10-27.69V40.63c0-21-9.34-22.76-24.80-25.65l-3.63-.68A7.21,7.21,0,1,1,49.46.13L53,.81c22.82,4.26,36.60,6.84,36.60,39.82V80.21c0,34.43-12.84,37.11-36.74,41.85l-3.37.68Z"/></svg>
     </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <main id="blog-container">
         <!-- Blog posts (excerpts) or Full Post will be dynamically loaded here by JavaScript -->
-        <!-- When showing full post, JS will populate this with two main divs:
-             <div class="full-post-content-area"> for the main article and "You Might Also Like"
-             <div class="full-post-sidebar"> for the right sidebar with search, recent posts, comments
-        -->
     </main>
 
   <!-- Footer Section -->
@@ -129,8 +132,8 @@
         </div>
     </div>
   
-    <!-- Social Media Icons -->
-    <div class="footer-socials">
+<!-- Social Media Icons -->
+        <div class="footer-socials">
             <a href="https://web.facebook.com/profile.php?id=100064748688249" target="_blank">
                 <img src="communication.png" width= "25%" alt="Facebook">
             </a>
@@ -140,7 +143,7 @@
             <a href="https://www.tiktok.com/@odascodiariestv?is_from_webapp=1&sender_device=pc" target="_blank">
               <img src="tik-tok.png" width= "25%" alt="LinkedIn">
           </a>
-    </div>
+        </div>
   
     <!-- Footer Bottom -->
     <div class="footer-bottom">

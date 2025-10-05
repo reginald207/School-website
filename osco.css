@@ -250,7 +250,7 @@ body {
 
 /* ===== HERO SECTION - USED ON: HOME, ABOUT, ACADEMICS PAGES ===== */
 .hero {
-  background-image: url('sch3.jpg'); /* Add your background image */
+  background-image: url('g2.jpg'); /* Add your background image */
   background-size: cover;
   background-position: center;
   height: 70vh;
@@ -335,10 +335,10 @@ body {
   height: 103vh;
 }
 
-.image-container {
+/* .image-container {
   flex: 1;
-  background: url('g2.jpg') center center/cover no-repeat;
-}
+  background: url('sch1.jpg') center center/cover no-repeat;
+} */
 
 .text-container {
   flex: 1;

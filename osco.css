@@ -507,9 +507,9 @@ body {
 }
 
 @media (max-width: 480px) {
-  .overlay h1 { font-size: 1.2rem; 
+  .overlay h1 { font-size: 1.4rem; 
   white-space: wrap;}
-  .overlay p { font-size: 0.85rem; }
+  .overlay p { font-size: 0.95rem; }
 }
 /*CTA carousel End*/
 

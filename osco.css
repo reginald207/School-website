@@ -506,7 +506,7 @@ body {
   .overlay p { font-size: 1rem; }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .overlay h1 { font-size: 1rem; 
   white-space: wrap;}
   .overlay p { font-size: 0.65rem; }

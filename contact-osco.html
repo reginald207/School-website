@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Website</title>
-    <link rel="stylesheet" href="osco.css">
+    <link rel="stylesheet" href="css-breakdown.css">
 
         <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -14,7 +14,7 @@
 <body>
   <header class="header">
     <div class="logo-container">
-        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+        <a href="osco.html" target="_blank"><img src="logo.png" alt="Logo" class="logo"></a>
         <span class="site-name">Oda Senior High School</span>
     </div>
 
@@ -34,7 +34,7 @@
     <!-- Navigation Links -->
     <nav class="nav">
       <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="osco.html">Home</a></li>
           <li><a href="about-osco.html">About</a></li>
           <li><a href="Academics-osco.html">Academics</a></li>
           <li><a href="blogpage.html">News and Events</a></li>
@@ -46,7 +46,7 @@
 <!-- Mobile Menu Drawer -->
 <div id="mobile-menu" class="mobile-menu">
   <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="osco.html">Home</a></li>
       <li><a href="about-osco.html">About</a></li>
       <li><a href="Academics-osco.html">Academics</a></li>
       <li><a href="blogpage.html">News</a></li>
@@ -54,14 +54,17 @@
   </ul>
   <hr style="width: 45%; height: 1px;  margin-left: auto; margin-right: auto;">
   <div class="footer-socials">
-            <a href="https://web.facebook.com/profile.php?id=100064748688249" target="_blank">
+       <a href="https://web.facebook.com/profile.php?id=100064748688249" target="_blank">
                 <img src="communication.png" width= "25%" alt="Facebook">
             </a>
             <a href="https://www.instagram.com/odasco_media?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                 <img src="instagram.png" width= "25%" alt="Instagram">
             </a>
             <a href="https://www.tiktok.com/@odascodiariestv?is_from_webapp=1&sender_device=pc" target="_blank">
-              <img src="tik-tok.png" width= "25%" alt="LinkedIn">
+              <img src="tik-tok.png" width= "25%" alt="tik-tok">
+          </a>
+          <a href="https://youtube.com/@odasco?si=FesPxmAjtelrV8hy" target="_blank">
+              <img src="youtube.png" width= "25%" alt="youtube">
           </a>
   </div>
   
@@ -75,67 +78,75 @@
 
 
   <main class="container">
-    <section class="contact-details">
-      <h2>Reach Us</h2>
-      <ul>
-        <li>
-          <span class="icon">📍</span>
-          P. O. Box 200, Akim Oda, ER, Ghana
-        </li>
-        <li>
-          <span class="icon">✉️</span>
-          odasomail
-        </li>
-        <li>
-          <span class="icon">✉️</span>
-          odascomail
-        </li>
-        <li>
-          <span class="icon">📞</span>
-          (+233) 000 000 000
-        </li>
-        <li>
-          <span class="icon">📞</span>
-          (+233) 000 000 000
-        </li>
-      </ul>
+    <!-- NEW: Wrapped the left column in a div with a new class for styling -->
+    <div class="contact-card"> 
+        <section class="contact-details">
+            <h2>Reach Us</h2>
+            <ul>
+                <li>
+                    <span class="icon">📍</span>
+                    P. O. BOX 200, AKIM ODA. EASTERN REGION- GHANA<br>
+                    EB-0246-6142
+                </li>
+                <li>
+                    <span class="icon">✉️</span>
+                    infor.odasco@gmail.com
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    (+233) 537 208 994
+                </li>
+            </ul>
 
-      <h2>Follow Us</h2>
-      <ul class="social-links">
-        <a class="ctlink" href ="" target="_blank"><li><img src="communication.png" width="6%"> Facebook</li></a>
-        <a class="ctlink" href ="" target="_blank"><li><img src="twitter.png" width="6%">Twitter</li></a>
-        <a class="ctlink" href ="" target="_blank"><li><img src="instagram.png" width="6%"> Instagram</li></a>
-        <a class="ctlink" href ="" target="_blank"><li><img src="tik-tok.png" width="6%"> TikTok</li></a>
-        <a class="ctlink" href ="" target="_blank"><li><img src="youtube.png" width="6%">YouTube</li></a>
-      </ul>
-    </section>
+            <h2>Follow Us</h2>
+            <ul class="social-links">
+                <!-- FIXED: Corrected HTML structure. <a> is now inside <li> -->
+                <li>
+                    <a class="ctlink" href="https://www.facebook.com/profile.php?id=100064748688249" target="_blank">
+                        <img src="communication.png" width="20" alt="Facebook icon"> Facebook
+                    </a>
+                </li>
+                <li>
+                    <a class="ctlink" href="https://www.instagram.com/odasco_media?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                        <img src="instagram.png" width="20" alt="Instagram icon"> Instagram
+                    </a>
+                </li>
+                <li>
+                    <a class="ctlink" href="https://www.tiktok.com/@odascompc?_t=ZM-90GpVcppDKK&_r=1" target="_blank">
+                        <img src="tik-tok.png" width="20" alt="TikTok icon"> TikTok
+                    </a>
+                </li>
+                <li>
+                    <a class="ctlink" href="https://youtube.com/@odasco?si=FesPxmAjtelrV8hy" target="_blank">
+                        <img src="youtube.png" width="20" alt="YouTube icon"> YouTube
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div> <!-- End of .contact-card -->
 
     <section class="contact-form">
-      <h2>Send Us a Message</h2>
-      <form action="https://formsubmit.co/oseireginald207@gmail.com" method="POST">
-        <label for="name">Your name</label>
-        <input type="text" id="name" name="name" required placeholder="Name">
-      
-        <label for="email">Your email</label>
-        <input type="email" id="email" name="email" required placeholder="Email Address">
-      
-        <label for="subject">Subject (optional)</label>
-        <input type="text" id="subject" name="subject" placeholder="Subject">
-      
-        <label for="message">Your message</label>
-        <textarea id="message" name="message" placeholder="Message"></textarea>
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="basic">
-        <input type="hidden" name="_next" value="https://odashs.vercel.app/thanks.html">
-        <input type="hidden" name="_autoresponse" value="Thank you for reaching out! We’ve received your message and will reply shortly.">
+        <h2>Send Us a Message</h2>
+        <form action="https://formsubmit.co/oseireginald207@gmail.com" method="POST">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required placeholder="Name">
 
-       
-      
-        <button type="submit">Submit</button>
-      </form>
-      
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" required placeholder="Email Address">
+
+            <label for="subject">Subject (optional)</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject">
+
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" placeholder="Message"></textarea>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="basic">
+
+            <button type="submit">Submit</button>
+        </form>
     </section>
-  </main>
+</main>
 
   <!-- Footer Section -->
   <footer class="footer">
@@ -144,7 +155,7 @@
         <!-- About Section -->
         <div class="footer-section about">
             <h3>About Us</h3>
-            <a href="index.html"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
+            <a href="osco.html" target="_blank"><img src="logo.png" alt="School Logo" class="footer-logo"></a>
               <p></p>Oda Senior High School (ODASCO), located in Akyem Oda in Ghana's Eastern Region, is a respected institution known for academic excellence and discipline. Since its establishment in 1960, ODASCO has provided a supportive environment for learning and personal growth, empowering students to excel and contribute to society with integrity and dedication.
   
   
@@ -161,10 +172,10 @@
             <h3>Quick Links</h3>
             <ul>
               <pre> </pre>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="osco.html">Home</a></li>
                 <li><a href="about-osco.html">About Us</a></li>
                 <li><a href="Academics-osco.html">Academics</a></li>
-                <li><a href="blogpage.html">News and Events</a></li>
+                <li><a href="news and events-osco.html">News and Events</a></li>
                 <li><a href="contact-osco.html">Contact Us</a></li>
             </ul>
         </div>
@@ -184,7 +195,7 @@
     </div>
   
     <!-- Social Media Icons -->
-    <div class="footer-socials">
+        <div class="footer-socials">
             <a href="https://web.facebook.com/profile.php?id=100064748688249" target="_blank">
                 <img src="communication.png" width= "25%" alt="Facebook">
             </a>
@@ -192,9 +203,12 @@
                 <img src="instagram.png" width= "25%" alt="Instagram">
             </a>
             <a href="https://www.tiktok.com/@odascodiariestv?is_from_webapp=1&sender_device=pc" target="_blank">
-              <img src="tik-tok.png" width= "25%" alt="LinkedIn">
+              <img src="tik-tok.png" width= "25%" alt="tik-tok">
           </a>
-    </div>
+          <a href="https://youtube.com/@odasco?si=FesPxmAjtelrV8hy" target="_blank">
+              <img src="youtube.png" width= "25%" alt="youtube">
+          </a>
+        </div>
   
     <!-- Footer Bottom -->
     <div class="footer-bottom">
